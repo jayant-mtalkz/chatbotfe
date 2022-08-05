@@ -20,41 +20,26 @@ editor.import(dataToImport);
 
 
 
-/*
-var welcome = `
-<div>
-  <div class="title-box">👏 Welcome!!</div>
-  <div class="box">
-    <p>Simple flow library <b>demo</b>
-    <a href="https://github.com/jerosoler/Drawflow" target="_blank">Drawflow</a> by <b>Jero Soler</b></p><br>
 
-    <p>Multiple input / outputs<br>
-       Data sync nodes<br>
-       Import / export<br>
-       Modules support<br>
-       Simple use<br>
-       Type: Fixed or Edit<br>
-       Events: view console<br>
-       Pure Javascript<br>
-    </p>
-    <br>
-    <p><b><u>Shortkeys:</u></b></p>
-    <p>🎹 <b>Delete</b> for remove selected<br>
-    💠 Mouse Left Click == Move<br>
-    ❌ Mouse Right == Delete Option<br>
-    🔍 Ctrl + Wheel == Zoom<br>
-    📱 Mobile support<br>
-    ...</p>
-  </div>
+  
+var start = `
+<div>
+  <div class="title-box"><i class="fab fa-facebook"></i> Start</div>
 </div>
 `;
-*/
+  editor.addNode('start', 0,  1, 50, 50, 'start', {}, start );
+    
+  var end = `
+      <div>
+        <div class="title-box" ><i class="fab fa-slack"></i> Stop </div>
+     
+      </div>
+      `
+    
+      editor.addNode('end', 1, 0, 550, 50, 'end', {}, end );
 
+    
 
-//editor.addNode(name, "typenode": false,  inputs, outputs, posx, posy, class, data, html);
-/*editor.addNode('welcome', 0, 0, 50, 50, 'welcome', {}, welcome );
-editor.addModule('Other');
-*/
 
 // Events!
 editor.on('nodeCreated', function(id) {
@@ -216,13 +201,8 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
     case 'aws':
       var aws = `
       <div>
-        <div class="title-box"><i class="fab fa-aws"></i> Aws Save </div>
-        <div class="box">
-          <p>Save in aws</p>
-          <input type="text" df-db-dbname placeholder="DB name"><br><br>
-          <input type="text" df-db-key placeholder="DB key">
-          <p>Output Log</p>
-        </div>
+        <div class="title-box"><i class="fab fa-envelope"></i> Message</div>
+      
       </div>
       `;
       editor.addNode('aws', 1, 1, pos_x, pos_y, 'aws', { "db": { "dbname": '', "key": '' }}, aws );
