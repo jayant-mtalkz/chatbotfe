@@ -93,6 +93,12 @@ fieldset {
 .drag-drawflow span {
     padding-left: 10px;
 }
+a.addCF {
+    background: cadetblue;
+    color: #fff;
+    padding: 6px 20px;
+    text-decoration: none;
+}
 </style>
   <header>
     <h2>Drawflow</h2>
@@ -211,7 +217,7 @@ fieldset {
             </div>
 
 
-            <div class="row dfield" id="message-field">
+            <div class="row dfield" id="message-field" style="display: block;">
             <div class="mb-3 mt-3">
               <label for="comment">Message:</label>
               <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
@@ -276,6 +282,26 @@ fieldset {
                 <option>Template</option>
               </select>
             </div>
+
+
+            <div class="row dfield2" id="Resp-user">
+             
+              <div class="mb-3 mt-3">
+                <label for="latitude" class="form-label">Timeout(seconds)</label>
+                <input type="text" class="form-control" id="Longitude" placeholder="Longitude" name="Longitude">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="loname" class="form-label">Action</label>
+                <input type="text" class="form-control" id="loname" placeholder="Close Session" name="loname">
+              </div>
+              <div class="mb-3 mt-3">
+       
+                <textarea class="form-control" rows="3" id="comment" name="text" placeholder="Enter Timeout Message"></textarea>
+              </div>
+              </div>
+
+
+
             </fieldset>
             <fieldset class="scheduler-border">
             <div class="mb-3 mt-3">
