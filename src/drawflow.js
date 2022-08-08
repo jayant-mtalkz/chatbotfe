@@ -1132,6 +1132,22 @@
                 // const dataToImport = {"data":{"1":{"id":1,"name":"start","data":{},"class":"start","html":"\n<div>\n  <div class=\"title-box\"><i class=\"fab fa-facebook\"></i> Start</div>\n</div>\n","typenode":false,"inputs":{},"outputs":{"output_1":{"connections":[]}},"pos_x":50,"pos_y":50},"2":{"id":2,"name":"end","data":{},"class":"end","html":"\n      <div>\n        <div class=\"title-box\" ><i class=\"fab fa-slack\"></i> Stop </div>\n     \n      </div>\n      ","typenode":false,"inputs":{"input_1":{"connections":[]}},"outputs":{},"pos_x":550,"pos_y":50}}}
                 // this.drawflow.drawflow[this.module] = dataToImport
                 console.log("testing <<<<")
+
+                var start = `
+<div>
+  <div class="title-box"><i class="fab fa-facebook"></i> Start</div>
+</div>
+`;
+  editor.addNode('start', 0,  1, 50, 50, 'start', {}, start );
+    
+  var end = `
+      <div>
+        <div class="title-box" ><i class="fab fa-slack"></i> Stop </div>
+     
+      </div>
+      `
+    
+      editor.addNode('end', 1, 0, 550, 50, 'end', {}, end );
             }
               
               clear() {

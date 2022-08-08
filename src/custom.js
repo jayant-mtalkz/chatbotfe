@@ -10,107 +10,97 @@ editor.createCurvature = function(start_pos_x, start_pos_y, end_pos_x, end_pos_y
   return ' M ' + start_pos_x + ' ' + start_pos_y + ' L '+ center_x +' ' +  start_pos_y  + ' L ' + center_x + ' ' +  end_pos_y  + ' L ' + end_pos_x + ' ' + end_pos_y;
 }*/
 
+//  const dataToImport =  {"drawflow":{"Home":{"data":{"1":{"id":1,"name":"start","data":{},"class":"start","html":"\n<div>\n  <div class=\"title-box\"><i class=\"fab fa-facebook\"></i> Start</div>\n</div>\n","typenode":false,"inputs":{},"outputs":{"output_1":{"connections":[]}},"pos_x":50,"pos_y":50},"2":{"id":2,"name":"end","data":{},"class":"end","html":"\n      <div>\n        <div class=\"title-box\" ><i class=\"fab fa-slack\"></i> Stop </div>\n     \n      </div>\n      ","typenode":false,"inputs":{"input_1":{"connections":[]}},"outputs":{},"pos_x":550,"pos_y":50},"3":{"id":3,"name":"slack","data":{},"class":"slack","html":"\n      <div>\n        <div class=\"title-box\" ><i class=\"fab fa-slack\"></i> Message</div>\n        <div class=\"setting-box\">\n          <i class=\"fa fa-cogs setting-icon\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal\">\n        </div>\n      </div>\n      ","typenode":false,"inputs":{"input_1":{"connections":[]}},"outputs":{"output_1":{"connections":[]}},"pos_x":339,"pos_y":243}}}}}
 
-
-
-//  const dataToImport =  {"drawflow":{"Home":{"data":{"1":{"id":1,"name":"welcome","data":{},"class":"welcome","html":"\n    <div>\n      <div class=\"title-box\">👏 Welcome!!</div>\n      <div class=\"box\">\n        <p>Simple flow library <b>demo</b>\n        <a href=\"https://github.com/jerosoler/Drawflow\" target=\"_blank\">Drawflow</a> by <b>Jero Soler</b></p><br>\n\n        <p>Multiple input / outputs<br>\n           Data sync nodes<br>\n           Import / export<br>\n           Modules support<br>\n           Simple use<br>\n           Type: Fixed or Edit<br>\n           Events: view console<br>\n           Pure Javascript<br>\n        </p>\n        <br>\n        <p><b><u>Shortkeys:</u></b></p>\n        <p>🎹 <b>Delete</b> for remove selected<br>\n        💠 Mouse Left Click == Move<br>\n        ❌ Mouse Right == Delete Option<br>\n        🔍 Ctrl + Wheel == Zoom<br>\n        📱 Mobile support<br>\n        ...</p>\n      </div>\n    </div>\n    ", "typenode": false, "inputs":{},"outputs":{},"pos_x":50,"pos_y":50},"2":{"id":2,"name":"slack","data":{},"class":"slack","html":"\n          <div>\n            <div class=\"title-box\"><i class=\"fab fa-slack\"></i> Slack chat message</div>\n          </div>\n          ", "typenode": false, "inputs":{"input_1":{"connections":[{"node":"7","input":"output_1"}]}},"outputs":{},"pos_x":1028,"pos_y":87},"3":{"id":3,"name":"telegram","data":{"channel":"channel_2"},"class":"telegram","html":"\n          <div>\n            <div class=\"title-box\"><i class=\"fab fa-telegram-plane\"></i> Telegram bot</div>\n            <div class=\"box\">\n              <p>Send to telegram</p>\n              <p>select channel</p>\n              <select df-channel>\n                <option value=\"channel_1\">Channel 1</option>\n                <option value=\"channel_2\">Channel 2</option>\n                <option value=\"channel_3\">Channel 3</option>\n                <option value=\"channel_4\">Channel 4</option>\n              </select>\n            </div>\n          </div>\n          ", "typenode": false, "inputs":{"input_1":{"connections":[{"node":"7","input":"output_1"}]}},"outputs":{},"pos_x":1032,"pos_y":184},"4":{"id":4,"name":"email","data":{},"class":"email","html":"\n            <div>\n              <div class=\"title-box\"><i class=\"fas fa-at\"></i> Send Email </div>\n            </div>\n            ", "typenode": false, "inputs":{"input_1":{"connections":[{"node":"5","input":"output_1"}]}},"outputs":{},"pos_x":1033,"pos_y":439},"5":{"id":5,"name":"template","data":{"template":"Write your template"},"class":"template","html":"\n            <div>\n              <div class=\"title-box\"><i class=\"fas fa-code\"></i> Template</div>\n              <div class=\"box\">\n                Ger Vars\n                <textarea df-template></textarea>\n                Output template with vars\n              </div>\n            </div>\n            ", "typenode": false, "inputs":{"input_1":{"connections":[{"node":"6","input":"output_1"}]}},"outputs":{"output_1":{"connections":[{"node":"4","output":"input_1"},{"node":"11","output":"input_1"}]}},"pos_x":607,"pos_y":304},"6":{"id":6,"name":"github","data":{"name":"https://github.com/jerosoler/Drawflow"},"class":"github","html":"\n          <div>\n            <div class=\"title-box\"><i class=\"fab fa-github \"></i> Github Stars</div>\n            <div class=\"box\">\n              <p>Enter repository url</p>\n            <input type=\"text\" df-name>\n            </div>\n          </div>\n          ", "typenode": false, "inputs":{},"outputs":{"output_1":{"connections":[{"node":"5","output":"input_1"}]}},"pos_x":341,"pos_y":191},"7":{"id":7,"name":"facebook","data":{},"class":"facebook","html":"\n        <div>\n          <div class=\"title-box\"><i class=\"fab fa-facebook\"></i> Facebook Message</div>\n        </div>\n        ", "typenode": false, "inputs":{},"outputs":{"output_1":{"connections":[{"node":"2","output":"input_1"},{"node":"3","output":"input_1"},{"node":"11","output":"input_1"}]}},"pos_x":347,"pos_y":87},"11":{"id":11,"name":"log","data":{},"class":"log","html":"\n            <div>\n              <div class=\"title-box\"><i class=\"fas fa-file-signature\"></i> Save log file </div>\n            </div>\n            ", "typenode": false, "inputs":{"input_1":{"connections":[{"node":"5","input":"output_1"},{"node":"7","input":"output_1"}]}},"outputs":{},"pos_x":1031,"pos_y":363}}},"Other":{"data":{"8":{"id":8,"name":"personalized","data":{},"class":"personalized","html":"\n            <div>\n              Personalized\n            </div>\n            ", "typenode": false, "inputs":{"input_1":{"connections":[{"node":"12","input":"output_1"},{"node":"12","input":"output_2"},{"node":"12","input":"output_3"},{"node":"12","input":"output_4"}]}},"outputs":{"output_1":{"connections":[{"node":"9","output":"input_1"}]}},"pos_x":764,"pos_y":227},"9":{"id":9,"name":"dbclick","data":{"name":"Hello World!!"},"class":"dbclick","html":"\n            <div>\n            <div class=\"title-box\"><i class=\"fas fa-mouse\"></i> Db Click</div>\n              <div class=\"box dbclickbox\" ondblclick=\"showpopup(event)\">\n                Db Click here\n                <div class=\"modal\" style=\"display:none\">\n                  <div class=\"modal-content\">\n                    <span class=\"close\" onclick=\"closemodal(event)\">&times;</span>\n                    Change your variable {name} !\n                    <input type=\"text\" df-name>\n                  </div>\n\n                </div>\n              </div>\n            </div>\n            ", "typenode": false, "inputs":{"input_1":{"connections":[{"node":"8","input":"output_1"}]}},"outputs":{"output_1":{"connections":[{"node":"12","output":"input_2"}]}},"pos_x":209,"pos_y":38},"12":{"id":12,"name":"multiple","data":{},"class":"multiple","html":"\n            <div>\n              <div class=\"box\">\n                Multiple!\n              </div>\n            </div>\n            ", "typenode": false, "inputs":{"input_1":{"connections":[]},"input_2":{"connections":[{"node":"9","input":"output_1"}]},"input_3":{"connections":[]}},"outputs":{"output_1":{"connections":[{"node":"8","output":"input_1"}]},"output_2":{"connections":[{"node":"8","output":"input_1"}]},"output_3":{"connections":[{"node":"8","output":"input_1"}]},"output_4":{"connections":[{"node":"8","output":"input_1"}]}},"pos_x":179,"pos_y":272}}}}}
-  
 var dataToImport = editor.export();
 editor.start();
 editor.import(dataToImport);
 
-
-
-
-  
 var start = `
 <div>
   <div class="title-box"><i class="fab fa-facebook"></i> Start</div>
 </div>
 `;
-  editor.addNode('start', 0,  1, 50, 50, 'start', {}, start );
-    
-  var end = `
+editor.addNode("start", 0, 1, 50, 50, "start", {}, start);
+
+var end = `
       <div>
         <div class="title-box" ><i class="fab fa-slack"></i> Stop </div>
      
       </div>
-      `
-    
-      editor.addNode('end', 1, 0, 550, 50, 'end', {}, end );
+      `;
 
-    
-
+editor.addNode("end", 1, 0, 550, 50, "end", {}, end);
 
 // Events!
-editor.on('nodeCreated', function(id) {
+editor.on("nodeCreated", function (id) {
   console.log("Node created " + id);
-})
+});
 
-editor.on('nodeRemoved', function(id) {
+editor.on("nodeRemoved", function (id) {
   console.log("Node removed " + id);
-})
+});
 
-editor.on('nodeSelected', function(id) {
+editor.on("nodeSelected", function (id) {
   console.log("Node selected " + id);
-})
+});
 
-editor.on('moduleCreated', function(name) {
+editor.on("moduleCreated", function (name) {
   console.log("Module Created " + name);
-})
+});
 
-editor.on('moduleChanged', function(name) {
+editor.on("moduleChanged", function (name) {
   console.log("Module Changed " + name);
-})
+});
 
-editor.on('connectionCreated', function(connection) {
-  console.log('Connection created');
+editor.on("connectionCreated", function (connection) {
+  console.log("Connection created");
   console.log(connection);
-})
+});
 
-editor.on('connectionRemoved', function(connection) {
-  console.log('Connection removed');
+editor.on("connectionRemoved", function (connection) {
+  console.log("Connection removed");
   console.log(connection);
-})
+});
 /*
 editor.on('mouseMove', function(position) {
   console.log('Position mouse x:' + position.x + ' y:'+ position.y);
 })
 */
-editor.on('nodeMoved', function(id) {
+editor.on("nodeMoved", function (id) {
   console.log("Node moved " + id);
-})
+});
 
-editor.on('zoom', function(zoom) {
-  console.log('Zoom level ' + zoom);
-})
+editor.on("zoom", function (zoom) {
+  console.log("Zoom level " + zoom);
+});
 
-editor.on('translate', function(position) {
-  console.log('Translate x:' + position.x + ' y:'+ position.y);
-})
+editor.on("translate", function (position) {
+  console.log("Translate x:" + position.x + " y:" + position.y);
+});
 
-editor.on('addReroute', function(id) {
+editor.on("addReroute", function (id) {
   console.log("Reroute added " + id);
-})
+});
 
-editor.on('removeReroute', function(id) {
+editor.on("removeReroute", function (id) {
   console.log("Reroute removed " + id);
-})
+});
 /* DRAG EVENT */
 
 /* Mouse and Touch Actions */
 
-var elements = document.getElementsByClassName('drag-drawflow');
+var elements = document.getElementsByClassName("drag-drawflow");
 for (var i = 0; i < elements.length; i++) {
-  elements[i].addEventListener('touchend', drop, false);
-  elements[i].addEventListener('touchmove', positionMobile, false);
-  elements[i].addEventListener('touchstart', drag, false );
+  elements[i].addEventListener("touchend", drop, false);
+  elements[i].addEventListener("touchmove", positionMobile, false);
+  elements[i].addEventListener("touchstart", drag, false);
 }
 
-var mobile_item_selec = '';
+var mobile_item_selec = "";
 var mobile_last_move = null;
 function positionMobile(ev) {
- mobile_last_move = ev;
+  mobile_last_move = ev;
 }
 
 function allowDrop(ev) {
@@ -119,45 +109,66 @@ function allowDrop(ev) {
 
 function drag(ev) {
   if (ev.type === "touchstart") {
-    mobile_item_selec = ev.target.closest(".drag-drawflow").getAttribute('data-node');
+    mobile_item_selec = ev.target
+      .closest(".drag-drawflow")
+      .getAttribute("data-node");
   } else {
-  ev.dataTransfer.setData("node", ev.target.getAttribute('data-node'));
+    ev.dataTransfer.setData("node", ev.target.getAttribute("data-node"));
   }
 }
 
 function drop(ev) {
   if (ev.type === "touchend") {
-    var parentdrawflow = document.elementFromPoint( mobile_last_move.touches[0].clientX, mobile_last_move.touches[0].clientY).closest("#drawflow");
-    if(parentdrawflow != null) {
-      addNodeToDrawFlow(mobile_item_selec, mobile_last_move.touches[0].clientX, mobile_last_move.touches[0].clientY);
+    var parentdrawflow = document
+      .elementFromPoint(
+        mobile_last_move.touches[0].clientX,
+        mobile_last_move.touches[0].clientY
+      )
+      .closest("#drawflow");
+    if (parentdrawflow != null) {
+      addNodeToDrawFlow(
+        mobile_item_selec,
+        mobile_last_move.touches[0].clientX,
+        mobile_last_move.touches[0].clientY
+      );
     }
-    mobile_item_selec = '';
+    mobile_item_selec = "";
   } else {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("node");
     addNodeToDrawFlow(data, ev.clientX, ev.clientY);
   }
-
 }
 
 function addNodeToDrawFlow(name, pos_x, pos_y) {
-  if(editor.editor_mode === 'fixed') {
+  if (editor.editor_mode === "fixed") {
     return false;
   }
-  pos_x = pos_x * ( editor.precanvas.clientWidth / (editor.precanvas.clientWidth * editor.zoom)) - (editor.precanvas.getBoundingClientRect().x * ( editor.precanvas.clientWidth / (editor.precanvas.clientWidth * editor.zoom)));
-  pos_y = pos_y * ( editor.precanvas.clientHeight / (editor.precanvas.clientHeight * editor.zoom)) - (editor.precanvas.getBoundingClientRect().y * ( editor.precanvas.clientHeight / (editor.precanvas.clientHeight * editor.zoom)));
-
+  pos_x =
+    pos_x *
+      (editor.precanvas.clientWidth /
+        (editor.precanvas.clientWidth * editor.zoom)) -
+    editor.precanvas.getBoundingClientRect().x *
+      (editor.precanvas.clientWidth /
+        (editor.precanvas.clientWidth * editor.zoom));
+  pos_y =
+    pos_y *
+      (editor.precanvas.clientHeight /
+        (editor.precanvas.clientHeight * editor.zoom)) -
+    editor.precanvas.getBoundingClientRect().y *
+      (editor.precanvas.clientHeight /
+        (editor.precanvas.clientHeight * editor.zoom));
 
   switch (name) {
-    case 'start':
-    var start = `
+    case "start":
+      var start = `
     <div>
       <div class="title-box"><i class="fab fa-facebook"></i> start</div>
     </div>
     `;
-      editor.addNode('start', 0,  1, pos_x, pos_y, 'start', {}, start );
+      editor.addNode("start", 0, 1, pos_x, pos_y, "start", {}, start);
       break;
-    case 'slack':
+    case "slack":
       var slackchat = `
       <div>
         <div class="title-box" ><i class="fab fa-slack"></i> Message</div>
@@ -165,11 +176,11 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
           <i class="fa fa-cogs setting-icon" data-bs-toggle="modal" data-bs-target="#myModal">
         </div>
       </div>
-      `
-    
-      editor.addNode('slack', 1, 1, pos_x, pos_y, 'slack', {}, slackchat );
+      `;
+
+      editor.addNode("slack", 1, 1, pos_x, pos_y, "slack", {}, slackchat);
       break;
-    case 'github':
+    case "github":
       var githubtemplate = `
       <div>
         <div class="title-box"><i class="fab fa-github "></i> Github Stars</div>
@@ -179,9 +190,18 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
         </div>
       </div>
       `;
-      editor.addNode('github', 0, 1, pos_x, pos_y, 'github', { "name": ''}, githubtemplate );
+      editor.addNode(
+        "github",
+        0,
+        1,
+        pos_x,
+        pos_y,
+        "github",
+        { name: "" },
+        githubtemplate
+      );
       break;
-    case 'telegram':
+    case "telegram":
       var telegrambot = `
       <div>
         <div class="title-box"><i class="fab fa-telegram-plane"></i> Telegram bot</div>
@@ -197,44 +217,62 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
         </div>
       </div>
       `;
-      editor.addNode('telegram', 1, 0, pos_x, pos_y, 'telegram', { "channel": 'channel_3'}, telegrambot );
+      editor.addNode(
+        "telegram",
+        1,
+        0,
+        pos_x,
+        pos_y,
+        "telegram",
+        { channel: "channel_3" },
+        telegrambot
+      );
       break;
-    case 'aws':
+    case "aws":
       var aws = `
       <div>
         <div class="title-box"><i class="fab fa-envelope"></i> Message</div>
       
       </div>
       `;
-      editor.addNode('aws', 1, 1, pos_x, pos_y, 'aws', { "db": { "dbname": '', "key": '' }}, aws );
+      editor.addNode(
+        "aws",
+        1,
+        1,
+        pos_x,
+        pos_y,
+        "aws",
+        { db: { dbname: "", key: "" } },
+        aws
+      );
       break;
-    case 'log':
-        var log = `
+    case "log":
+      var log = `
         <div>
           <div class="title-box"><i class="fas fa-file-signature"></i> Save log file </div>
         </div>
         `;
-        editor.addNode('log', 1, 0, pos_x, pos_y, 'log', {}, log );
-        break;
-      case 'google':
-        var google = `
+      editor.addNode("log", 1, 0, pos_x, pos_y, "log", {}, log);
+      break;
+    case "google":
+      var google = `
         <div>
           <div class="title-box"><i class="fab fa-google-drive"></i> Google Drive save </div>
         </div>
         `;
-        editor.addNode('google', 1, 0, pos_x, pos_y, 'google', {}, google );
-        break;
-      case 'email':
-        var email = `
+      editor.addNode("google", 1, 0, pos_x, pos_y, "google", {}, google);
+      break;
+    case "email":
+      var email = `
         <div>
           <div class="title-box"><i class="fas fa-at"></i> Send Email </div>
         </div>
         `;
-        editor.addNode('email', 1, 0, pos_x, pos_y, 'email', {}, email );
-        break;
+      editor.addNode("email", 1, 0, pos_x, pos_y, "email", {}, email);
+      break;
 
-      case 'template':
-        var template = `
+    case "template":
+      var template = `
         <div>
           <div class="title-box"><i class="fas fa-code"></i> Template</div>
           <div class="box">
@@ -244,28 +282,46 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
           </div>
         </div>
         `;
-        editor.addNode('template', 1, 1, pos_x, pos_y, 'template', { "template": 'Write your template'}, template );
-        break;
-      case 'multiple':
-        var multiple = `
+      editor.addNode(
+        "template",
+        1,
+        1,
+        pos_x,
+        pos_y,
+        "template",
+        { template: "Write your template" },
+        template
+      );
+      break;
+    case "multiple":
+      var multiple = `
         <div>
           <div class="box">
             Multiple!
           </div>
         </div>
         `;
-        editor.addNode('multiple', 3, 4, pos_x, pos_y, 'multiple', {}, multiple );
-        break;
-      case 'personalized':
-        var personalized = `
+      editor.addNode("multiple", 3, 4, pos_x, pos_y, "multiple", {}, multiple);
+      break;
+    case "personalized":
+      var personalized = `
         <div>
           Personalized
         </div>
         `;
-        editor.addNode('personalized', 1, 1, pos_x, pos_y, 'personalized', {}, personalized );
-        break;
-      case 'dbclick':
-        var dbclick = `
+      editor.addNode(
+        "personalized",
+        1,
+        1,
+        pos_x,
+        pos_y,
+        "personalized",
+        {},
+        personalized
+      );
+      break;
+    case "dbclick":
+      var dbclick = `
         <div>
         <div class="title-box"><i class="fas fa-mouse"></i> Db Click</div>
           <div class="box dbclickbox" ondblclick="showpopup(event)">
@@ -281,11 +337,20 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
           </div>
         </div>
         `;
-        editor.addNode('dbclick', 1, 1, pos_x, pos_y, 'dbclick', { name: ''}, dbclick );
-        break;
+      editor.addNode(
+        "dbclick",
+        1,
+        1,
+        pos_x,
+        pos_y,
+        "dbclick",
+        { name: "" },
+        dbclick
+      );
+      break;
 
-        case 'custom':
-        var custom = `
+    case "custom":
+      var custom = `
         <div>
         <div class="title-box"><i class="fas fa-mouse"></i> Db Click</div>
           <div class="box dbclickbox" ondblclick="showpopup(event)">
@@ -301,115 +366,137 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
           </div>
         </div>
         `;
-        editor.addNode('custom', 1, 1, pos_x, pos_y, 'dbclick', { name: ''}, custom );
-        break;
+      editor.addNode(
+        "custom",
+        1,
+        1,
+        pos_x,
+        pos_y,
+        "dbclick",
+        { name: "" },
+        custom
+      );
+      break;
 
     default:
   }
 }
 
-var transform = '';
+var transform = "";
 function showpopup(e) {
-e.target.closest(".drawflow-node").style.zIndex = "9999";
-e.target.children[0].style.display = "block";
-//document.getElementById("modalfix").style.display = "block";
+  e.target.closest(".drawflow-node").style.zIndex = "9999";
+  e.target.children[0].style.display = "block";
+  //document.getElementById("modalfix").style.display = "block";
 
-//e.target.children[0].style.transform = 'translate('+translate.x+'px, '+translate.y+'px)';
-transform = editor.precanvas.style.transform;
-editor.precanvas.style.transform = '';
-editor.precanvas.style.left = editor.canvas_x +'px';
-editor.precanvas.style.top = editor.canvas_y +'px';
-console.log(transform);
+  //e.target.children[0].style.transform = 'translate('+translate.x+'px, '+translate.y+'px)';
+  transform = editor.precanvas.style.transform;
+  editor.precanvas.style.transform = "";
+  editor.precanvas.style.left = editor.canvas_x + "px";
+  editor.precanvas.style.top = editor.canvas_y + "px";
+  console.log(transform);
 
-//e.target.children[0].style.top  =  -editor.canvas_y - editor.container.offsetTop +'px';
-//e.target.children[0].style.left  =  -editor.canvas_x  - editor.container.offsetLeft +'px';
-editor.editor_mode = "fixed";
-
+  //e.target.children[0].style.top  =  -editor.canvas_y - editor.container.offsetTop +'px';
+  //e.target.children[0].style.left  =  -editor.canvas_x  - editor.container.offsetLeft +'px';
+  editor.editor_mode = "fixed";
 }
 
 function closemodal(e) {
- e.target.closest(".drawflow-node").style.zIndex = "2";
- e.target.parentElement.parentElement.style.display  ="none";
- //document.getElementById("modalfix").style.display = "none";
- editor.precanvas.style.transform = transform;
-   editor.precanvas.style.left = '0px';
-   editor.precanvas.style.top = '0px';
+  e.target.closest(".drawflow-node").style.zIndex = "2";
+  e.target.parentElement.parentElement.style.display = "none";
+  //document.getElementById("modalfix").style.display = "none";
+  editor.precanvas.style.transform = transform;
+  editor.precanvas.style.left = "0px";
+  editor.precanvas.style.top = "0px";
   editor.editor_mode = "edit";
 }
 
 function changeModule(event) {
   var all = document.querySelectorAll(".menu ul li");
-    for (var i = 0; i < all.length; i++) {
-      all[i].classList.add('selected');
-    }
-  event.target.classList.add('selected');
+  for (var i = 0; i < all.length; i++) {
+    all[i].classList.add("selected");
+  }
+  event.target.classList.add("selected");
 }
 
 function changeMode(option) {
-
-//console.log(lock.id);
-  if(option == 'lock') {
-    lock.style.display = 'none';
-    unlock.style.display = 'block';
+  //console.log(lock.id);
+  if (option == "lock") {
+    lock.style.display = "none";
+    unlock.style.display = "block";
   } else {
-    lock.style.display = 'block';
-    unlock.style.display = 'none';
+    lock.style.display = "block";
+    unlock.style.display = "none";
   }
-
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // append input fields
 
-$(function() {
-   
-    $('#type').change(function(){
-        if($('#type').val() == 'Text') {
-            $('.dfield').hide(); 
-            $('#message-field').show(); 
-        
-        } 
-        else if ($('#type').val() == 'Image') {
-            $('.dfield').hide(); 
-            $('#url-field').show(); 
-        } 
-        else if ($('#type').val() == 'Video') {
-            $('.dfield').hide(); 
-            $('#url-field').show(); 
-        } 
-        else if ($('#type').val() == 'Audio') {
-            $('.dfield').hide(); 
-            $('#url-field').show(); 
-        } 
-        else if ($('#type').val() == 'Document') {
-            $('.dfield').hide(); 
-            $('#url-field').show(); 
-        } 
-        else if ($('#type').val() == 'Location') {
-            $('.dfield').hide(); 
-            $('#location-field').show(); 
-        } 
-        else if ($('#type').val() == 'Template') {
-            $('.dfield').hide(); 
-            $('#Template').show(); 
-           
-        } 
-        
-        else{
-          $('.dfield').hide(); 
-        }
+$(function () {
+  $("#type").change(function () {
+    if ($("#type").val() == "Text") {
+      $(".dfield").hide();
+      $("#message-field").show();
+    } else if ($("#type").val() == "Image") {
+      $(".dfield").hide();
+      $("#url-field").show();
+    } else if ($("#type").val() == "Video") {
+      $(".dfield").hide();
+      $("#url-field").show();
+    } else if ($("#type").val() == "Audio") {
+      $(".dfield").hide();
+      $("#url-field").show();
+    } else if ($("#type").val() == "Document") {
+      $(".dfield").hide();
+      $("#url-field").show();
+    } else if ($("#type").val() == "Location") {
+      $(".dfield").hide();
+      $("#location-field").show();
+    } else if ($("#type").val() == "Template") {
+      $(".dfield").hide();
+      $("#Template").show();
+    }  else if ($("#type").val() == "Button") {
+      $(".dfield").hide();
+      $("#buttonFields").show();
+    }else {
+      $(".dfield").hide();
+    }
+  });
+});
 
-    });
+
+
+$(function () {
+  $("#response-type").change(function () {
+    if ($("#response-type").val() == "User") {
+      $(".refbox").hide();
+      $("#Resp-user").show();
+      $("#map-var").show();
+      $("#fset").show();
+      
+    }else if ($("#response-type").val() == "System") {
+      $(".refbox").hide();
+      $("#Resp-user").show();
+      $("#map-var").hide();
+      $("#fset").show();
+    }  else {
+      $(".refbox").hide();
+    }
+  });
+});
+
+
+$(function () {
+  $("#action-type").change(function () {
+    if ($("#action-type").val() == "Continue") {
+      $(".timeoutMessagerbox").hide();
+      $("#timeoutMessager").hide();
+     }else if ($("#action-type").val() == "Close") {
+      $(".timeoutMessagerbox").show();
+      $("#timeoutMessager").show();
+    } else {
+      $(".timeoutMessagerbox").hide();
+    }
+  });
 });
 
 
@@ -418,13 +505,62 @@ $(function() {
 
 
 
-$(document).ready(function(){
-	$(".addCF").click(function(){
-		$("#customFields").append('<tr valign="top"><td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Input Name" /></td><td> <input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Input Value" /></td> <td> <a href="javascript:void(0);" class="remCF">Remove</a></td></tr>');
-	});
-    $("#customFields").on('click','.remCF',function(){
-        $(this).parent().parent().remove();
-    });
+
+
+
+$(document).ready(function () {
+  $(".addCF").click(function () {
+    $("#customFields").append(
+      '<tr valign="top"><td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Input Name" /></td><td> <input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Input Value" /></td> <td> <a href="javascript:void(0);" class="remCF">Remove</a></td></tr>'
+    );
+  });
+  $("#customFields").on("click", ".remCF", function () {
+    $(this).parent().parent().remove();
+  });
 });
 
 
+
+
+
+$(document).ready(function () {
+  $(".addCF2").click(function () {
+    $("#customFields2").append(
+      '<tr valign="top"><td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Input Name" /></td><td> <input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Input Value" /></td> <td> <a href="javascript:void(0);" class="remCF">Remove</a></td></tr>'
+    );
+  });
+  $("#customFields2").on("click", ".remCF", function () {
+    $(this).parent().parent().remove();
+  });
+});
+
+$(document).ready(function () {
+  $(".addbtn").click(function () {
+    $("#buttonFields").append(
+      ' <label for="comment">.</label> <a href="javascript:void(0);" class="removebtn">Remove Button</a></div><div class="button-block"><div class="mb-3 mt-3"><label for="label" class="form-label">label</label><input type="text" class="form-control" id="label" placeholder="please enter label" name="customFieldBtn[]"/></div><div class="mb-3 mt-3"><label for="loname" class="form-label">id</label><input type="text" class="form-control" id="id" placeholder="enter id" name="customFieldBtn[]"/></div></div>'
+    );
+  });
+  // $("#buttonFields").on("click", ".removebtn", function () {
+  //   $(this).parent().parent().remove();
+  // });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function () {
+  $("#enable-ref").click(function () {
+    $(".red").toggle();
+  });
+});

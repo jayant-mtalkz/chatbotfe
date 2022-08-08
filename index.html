@@ -30,12 +30,20 @@
  
     background-color: rgb(0 0 0 / 22%);
 }
+
+.modal-header{
+  padding: 0px;
+}
+label {
+  
+    padding-bottom: 5px;
+}
 fieldset {
     min-width: 0;
     border: 0;
     background: #f2f2f2;
     padding: 10px 20px;
-    margin: 25px 0px;
+    margin: 5px 0px;
 }
   .setting-icon {
     font-size: 20px;
@@ -93,16 +101,11 @@ fieldset {
 .drag-drawflow span {
     padding-left: 10px;
 }
-a.addCF {
-    background: cadetblue;
-    color: #fff;
-    padding: 6px 20px;
-    text-decoration: none;
-}
+
 </style>
   <header>
-    <h2>Drawflow</h2>
-    <div class="github-link"><a href="https://github.com/jerosoler/Drawflow" target="_blank"><i class="fab fa-github fa-3x"></i></a></div>
+    <h2>Mtalkz</h2>
+    <!-- <div class="github-link"><a href="https://github.com/jerosoler/Drawflow" target="_blank"><i class="fab fa-github fa-3x"></i></a></div> -->
   </header>
   <div class="wrapper">
     <div class="col">
@@ -188,10 +191,10 @@ a.addCF {
         </div>
   
         <!-- Modal body -->
-        <div class="modal-body">
+        <div class="modalbody">
          
           <form>
-            <label for="comment">Choose Type:</label>
+            <label for="comment" class="mb-1 mt-1">Choose Type:</label>
             <select class="form-select" name="type" id="type">
               <option value="Text">Text</option>
               <option value="Image">Image</option>
@@ -200,7 +203,7 @@ a.addCF {
               <option value="Document">Document</option>
               <option value="Location">Location</option>
               <option value="Template">Template</option>
-              <option value="Interactive-Messages">Interactive Messages</option>
+              <option value="Button">Button</option>
               <option value="Action-Card-(GBM)">Action Card (GBM)</option>
             </select>
             <fieldset class="scheduler-border">
@@ -257,7 +260,8 @@ a.addCF {
   <table class="table table-bordered"  id="customFields">
  
     <tr valign="top">
-      
+      <th>Key</th>
+      <th>Value</th>
       <!-- <td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Input Name" /> </td>
         <td><input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Input Value" /></td>
         <td> <a href="javascript:void(0);" class="addCF">Add</a></td> -->
@@ -267,50 +271,119 @@ a.addCF {
   </table>
 </div>
 </div>
+
+<div class="row dfield" id="buttonFields">
+  
+  <div class="mb-3 mt-3">
+    <label for="Text" class="form-label">Text</label>
+    <input type="text" class="form-control" id="Text" placeholder="Enter Text Here" name="Text">
+  </div>
+  <div class="template-part-box">
+    <label for="comment">.</label> <a href="javascript:void(0);" class="addbtn">Add Button</a></div>
+<!-- <div class="button-block">
+ 
+  <div class="mb-3 mt-3">
+    <label for="Label" class="form-label">Label</label>
+    <input type="text" class="form-control" id="Label" placeholder="Please Enter Label" name="Label">
+  </div>
+  <div class="mb-3 mt-3">
+    <label for="loname" class="form-label">ID</label>
+    <input type="text" class="form-control" id="ID" placeholder="Enter id" name="ID">
+  </div>
+</div> -->
+ 
+
+
+
+  </div>
+
+
+
+
 </div>
             </fieldset>
             <fieldset class="scheduler-border">
             <div class="mb-3 mt-3">
               <label for="comment">Response Type:</label>
-              <select class="form-select">
-                <option>Text</option>
-                <option>Image</option>
-                <option>Video</option>
-                <option>Audio</option>
-                <option>Document</option>
-                <option>Location</option>
-                <option>Template</option>
+              <select class="form-select" name="response-type" id="response-type">
+                <option value="None">None</option>
+                <option value="User">User</option>
+                <option value="System">System</option>
+                
               </select>
+
+              <div class="row refbox" id="map-var" style="display:none;">
+             
+                <div class="mb-3 mt-3">
+                  <label for="timeout" class="form-label">Map Variable</label>
+                  <input type="text" class="form-control" id="Longitude" placeholder="" name="timeout">
+                </div>
+               
+                </div>
+              
             </div>
 
 
-            <div class="row dfield2" id="Resp-user">
-             
-              <div class="mb-3 mt-3">
-                <label for="latitude" class="form-label">Timeout(seconds)</label>
-                <input type="text" class="form-control" id="Longitude" placeholder="Longitude" name="Longitude">
-              </div>
-              <div class="mb-3 mt-3">
-                <label for="loname" class="form-label">Action</label>
-                <input type="text" class="form-control" id="loname" placeholder="Close Session" name="loname">
-              </div>
-              <div class="mb-3 mt-3">
-       
-                <textarea class="form-control" rows="3" id="comment" name="text" placeholder="Enter Timeout Message"></textarea>
-              </div>
-              </div>
+            
 
 
 
             </fieldset>
+
+<fieldset class="scheduler-border " id="fset" style="display:none;">
+  <div class="row refbox" id="Resp-user" style="display:none;">
+             
+    <div class="mb-3 mt-3">
+      <label for="timeout" class="form-label">Timeout(seconds)</label>
+      <input type="text" class="form-control" id="timeout" placeholder="" name="timeout">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="action" class="form-label">Action</label>
+      <select class="form-select" name="action-type" id="action-type">
+        
+        <option value="Close">Close Session</option>
+        <option value="Continue">Take new Branch</option>
+        
+      </select>
+    </div>
+    <div class="mb-3 mt-3">
+
+      <textarea class="form-control timeoutMessagerbox" rows="3" id="timeoutMessage" id name="text" placeholder="Enter Timeout Message"></textarea>
+    </div>
+    </div>
+
+</fieldset>
+
             <fieldset class="scheduler-border">
             <div class="mb-3 mt-3">
             <div class="form-check">
               
-              <label class="form-check-label" for="check1">Enable Reference</label>
-              <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked>
+              <label class="form-check-label " id="enable-ref" for="check1">Enable Reference</label>
+              <input type="checkbox" class="form-check-input" id="check1" name="option1" value="Enable-Reference" >
             </div>
             </div>
+
+
+            <div class="red box" style="display: none;">
+              <div class="template-part-box">
+                <label for="comment">.</label> <a href="javascript:void(0);" class="addCF2">Add</a></div>
+                <div class="table-responsive">
+                  <table class="table table-bordered"  id="customFields2">
+                 
+                    <tr valign="top">
+                      <th>Key</th>
+                      <th>Value</th>
+                      <!-- <td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Input Name" /> </td>
+                        <td><input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Input Value" /></td>
+                        <td> <a href="javascript:void(0);" class="addCF">Add</a></td> -->
+                      
+                    </tr>
+                    
+                  </table>
+                </div>
+            
+            </div>
+
             </fieldset>
 <div class="button-box">
             <button type="submit" class="btn btn-primary mt-3">Save</button>
@@ -338,6 +411,8 @@ a.addCF {
 function refreshPage(){
     window.location.reload();
 } 
+
+
 
 </script>
 
