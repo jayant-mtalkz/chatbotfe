@@ -103,13 +103,14 @@ fieldset {
       <!-- <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="start">
         <i class="fab fa-facebook"></i><span> Start</span>
       </div> -->
-      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="aws">
+      <!-- <div class="drag-drawflow " draggable="true" ondragstart="drag(event)" data-node="aws">
         <i class="fab fa-envelope"></i><span> Message</span>
-      </div>
-      <!-- <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="slack" >
+        
+      </div> -->
+      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="slack" >
         <i class="fab fa-slack"></i><span>Message</span>
  
-      </div> -->
+      </div>
       <!-- <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="github">
         <i class="fab fa-github"></i><span> Github Star</span>
       </div>
@@ -154,7 +155,7 @@ fieldset {
         <div class="btn-export" onclick="Swal.fire({ title: 'Export',
         html: '<pre><code>'+JSON.stringify(editor.export(), null,4)+'</code></pre>'
         })">Export</div>
-        <div class="btn-clear" id="btn-clear"  onclick="editor.clearModuleSelected(); refreshPage()">Clear</div>
+        <div class="btn-clear" id="btn-clear"  onclick="editor.clearModuleSelected();">Clear</div>
         <div class="btn-lock">
           <i id="lock" class="fas fa-lock" onclick="editor.editor_mode='fixed'; changeMode('lock');"></i>
           <i id="unlock" class="fas fa-lock-open" onclick="editor.editor_mode='edit'; changeMode('unlock');" style="display:none;"></i>

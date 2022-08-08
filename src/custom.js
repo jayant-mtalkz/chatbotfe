@@ -167,7 +167,7 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
       </div>
       `
     
-      editor.addNode('slack', 1, 0, pos_x, pos_y, 'slack', {}, slackchat );
+      editor.addNode('slack', 1, 1, pos_x, pos_y, 'slack', {}, slackchat );
       break;
     case 'github':
       var githubtemplate = `
