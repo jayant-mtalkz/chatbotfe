@@ -534,6 +534,24 @@ $(function () {
 
 
 
+$(function () {
+  $("#Apiaction-type").change(function () {
+    if ($("#Apiaction-type").val() == "Continue") {
+      $(".ApitimeoutMessagerbox").hide();
+      $("#ApitimeoutMessager").hide();
+     }else if ($("#Apiaction-type").val() == "Close") {
+      $(".ApitimeoutMessagerbox").show();
+      $("#ApitimeoutMessager").show();
+    } else {
+      $(".ApitimeoutMessagerbox").hide();
+    }
+  });
+});
+
+
+
+
+
 
 
 
@@ -591,6 +609,10 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 $(document).ready(function () {
   $(".addcard").click(function () {
     $("#cardbox").append(
@@ -618,3 +640,58 @@ $(document).ready(function () {
     $(".red").toggle();
   });
 });
+
+
+
+$(document).ready(function () {
+  $("#asynchronous-type").click(function () {
+    $(".asynchronousBox").toggle();
+  });
+});
+
+
+
+$(document).ready(function () {
+  $(".Mappingaddbutton").click(function () {
+    $("#Mappingbox").append(
+      '<tr valign="top"><td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Input Name" /></td><td> <input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Input Value" /></td> <td> <a href="javascript:void(0);" class="removebtn">Remove</a></td></tr>');
+  });
+  $("#Mappingbox").on("click", ".removebtn", function () {
+    $(this).parent().parent().remove();
+  });
+});
+
+
+$(document).ready(function () {
+  $(".headeraddbutton").click(function () {
+    $("#headerbox").append(
+      '<tr valign="top"><td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Input Name" /></td><td> <input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Input Value" /></td> <td> <a href="javascript:void(0);" class="removebtn">Remove</a></td></tr>');
+  });
+  $("#headerbox").on("click", ".removebtn", function () {
+    $(this).parent().parent().remove();
+  });
+});
+
+
+
+$(document).ready(function () {
+  $(".urlEncodedbutton").click(function () {
+    $("#urlEncodedbox").append(
+      '<tr valign="top"><td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Input Name" /></td><td> <input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Input Value" /></td> <td> <a href="javascript:void(0);" class="removebtn">Remove</a></td></tr>');
+  });
+  $("#urlEncodedbox").on("click", ".removebtn", function () {
+    $(this).parent().parent().remove();
+  });
+});
+
+
+
+$(document).ready(function(){
+  $('input[type="radio"]').click(function(){
+ 
+      var inputValue = $(this).attr("value");
+      var targetBox = $("." + inputValue);
+      $(".bobox").not(targetBox).hide();
+      $(targetBox).show();
+  });
+})

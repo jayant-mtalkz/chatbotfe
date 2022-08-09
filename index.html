@@ -27,8 +27,11 @@
          background-color: rgb(0 0 0 / 22%);
          }
          .modal-header{
-         padding: 0px;
+          padding: 10px 0px;
          }
+         .modal-body {
+    padding: 1rem 0px;
+}
          label {
          padding-bottom: 5px;
          }
@@ -145,6 +148,14 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
 
 .radio-box {
     display: flex;
+}
+
+.bobox{
+  display: none;
+}
+
+.tab-pane {
+    padding: 0px;
 }
       </style>
       <header>
@@ -404,6 +415,7 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
                           </div>
                </div>
                </fieldset>
+
                <fieldset class="scheduler-border">
                <div class="mb-3 mt-3">
                <label for="comment">Response Type:</label>
@@ -438,6 +450,8 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
                </div>
                </div>
                </fieldset>
+
+
                <fieldset class="scheduler-border">
                <div class="mb-3 mt-3">
                <div class="form-check">
@@ -489,7 +503,7 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
 
       <!-- Modal body -->
        <div class="modal-body">
-        <div class="row">
+        <div class="row mt-3 mb-3">
           <div class="col-lg-2">
             <select class="form-select method" name="type" id="method">
               <option value="GET">Get</option>
@@ -520,14 +534,32 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div class="tab-pane container active" id="header">...</div>
+  <div class="tab-pane container active" id="header">
+
+    <div class="template-part-box">
+      <label for="comment">.</label> <a href="javascript:void(0);" class="headeraddbutton">Add</a></div>
+      <div class="table-responsive">
+      <table class="table table-bordered"  id="headerbox">
+      <tr valign="top">
+      <th>Key</th>
+      <th>Value</th>
+   
+      </tr>
+      </table>
+      </div>
+
+
+
+
+  </div>
   <div class="tab-pane container fade" id="body">
 
-    <div class="radio-box">
+    <div class="radio-box mt-3">
     <div class="form-check">
       <input type="radio" class="form-check-input" id="urlEncoded" name="optradio" value="urlEncoded" checked>x-www-form-urlencoded
       <label class="form-check-label" for="urlEncoded"></label>
     </div>
+
     <div class="form-check">
       <input type="radio" class="form-check-input" id="radio2" name="optradio" value="Raw">Raw
       <label class="form-check-label" for="radio2"></label>
@@ -535,6 +567,33 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
   </div>
 
 
+  <div class="urlEncoded bobox" style="display: block;">
+
+    <div class="template-part-box">
+      <label for="comment">.</label> <a href="javascript:void(0);" class="urlEncodedbutton">Add</a></div>
+      <div class="table-responsive">
+      <table class="table table-bordered"  id="urlEncodedbox">
+      <tr valign="top">
+      <th>Key</th>
+      <th>Value</th>
+   
+      </tr>
+      </table>
+      </div>
+
+
+  </div>
+  <div class="Raw bobox">
+    <div class="mb-3 mt-3">
+      <textarea class="form-control ApitimeoutMessagerbox" rows="3" id="ApitimeoutMessage" id name="text" placeholder="Enter Timeout Message"></textarea>
+      </div>
+
+
+  </div>
+
+
+
+
   </div>
 
 </div>
@@ -543,25 +602,71 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
 
 
 
-<h3>Variable Mapping</h3>
+
+<fieldset class="scheduler-border">
+  <div class="mb-3 mt-3">
+  <div class="form-check">
+  <label class="form-check-label " id="asynchronoustype" for="asynchronous-type">Asynchronous</label>
+  <input type="checkbox" class="form-check-input" id="asynchronous-type" name="asynchronous-type" value="asynchronous" >
+  </div>
+  </div>
+
+  <div class="asynchronousBox" style="display:none;" >
+    <div class="mb-3 mt-3">
+      <label for="timeout" class="form-label">Timeout(seconds)</label>
+      <input type="text" class="form-control" id="Apitimeout" placeholder="" name="timeout">
+      </div>
+    <div class="mb-3 mt-3">
+      <label for="action" class="form-label">Action</label>
+      <select class="form-select" name="action-type" id="Apiaction-type">
+      <option value="Close">Close Session</option>
+      <option value="Continue">Take new Branch</option>
+      </select>
+   </div>
+   <div class="mb-3 mt-3">
+    <textarea class="form-control ApitimeoutMessagerbox" rows="3" id="ApitimeoutMessage" id name="text" placeholder="Enter Timeout Message"></textarea>
+    </div>
+
+
+  </div>
+  </fieldset>
+
+
+
+
+  <h4 class="my-3">Variable Mapping</h4>
 
 <div class="tab-box-2">   
 
   <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" data-bs-toggle="tab" href="#header">Headers</a>
+    <a class="nav-link active" data-bs-toggle="tab" href="#outputmapping">Output Mapping</a>
   </li>
 
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane container active" id="header">...</div>
-  <div class="tab-pane container fade" id="body">
+  <div class="tab-pane container active" id="outputmapping">
+    
+    
+    <div class="template-part-box">
+      <label for="comment">.</label> <a href="javascript:void(0);" class="Mappingaddbutton">Add</a></div>
+      <div class="table-responsive">
+      <table class="table table-bordered"  id="Mappingbox">
+      <tr valign="top">
+      <th>Key</th>
+      <th>Value</th>
+      <!-- <td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Input Name" /> </td>
+         <td><input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Input Value" /></td>
+         <td> <a href="javascript:void(0);" class="addCF">Add</a></td> -->
+      </tr>
+      </table>
+      </div>
 
- 
 
 
   </div>
+
 
 </div>
 
@@ -570,7 +675,8 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
       </div>
 
     </div>
