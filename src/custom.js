@@ -183,16 +183,15 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
     case "github":
       var githubtemplate = `
       <div>
-        <div class="title-box"><i class="fab fa-github "></i> Github Stars</div>
-        <div class="box">
-          <p>Enter repository url</p>
-        <input type="text" df-name>
+        <div class="title-box" ><i class="fab fa-slack"></i> API</div>
+        <div class="setting-box">
+          <i class="fa fa-cogs setting-icon" data-bs-toggle="modal" data-bs-target="#apiModal">
         </div>
       </div>
       `;
       editor.addNode(
         "github",
-        0,
+        1,
         1,
         pos_x,
         pos_y,
@@ -457,11 +456,43 @@ $(function () {
     }  else if ($("#type").val() == "Button") {
       $(".dfield").hide();
       $("#buttonFields").show();
-    }else {
+    }else if ($("#type").val() == "ActionCard") {
+     
+      $(".dfield").hide();
+      $("#Richcard").show();
+    }
+    
+    else {
       $(".dfield").hide();
     }
   });
 });
+
+
+
+
+$(function () {
+  $("#cardType").change(function () {
+    if ($("#cardType").val() == "standalone") {
+   
+      $(".standaloneContainer").show();
+      $(".CarouselContainer").hide();
+     }else if ($("#cardType").val() == "carousel") {
+      $(".standaloneContainer").hide();
+      $(".CarouselContainer").show();
+    } else {
+      $(".standaloneContainer").hide();
+    }
+  });
+});
+
+
+
+
+
+
+
+
 
 
 
@@ -537,25 +568,48 @@ $(document).ready(function () {
 $(document).ready(function () {
   $(".addbtn").click(function () {
     $("#buttonFields").append(
-      ' <label for="comment">.</label> <a href="javascript:void(0);" class="removebtn">Remove Button</a></div><div class="button-block"><div class="mb-3 mt-3"><label for="label" class="form-label">label</label><input type="text" class="form-control" id="label" placeholder="please enter label" name="customFieldBtn[]"/></div><div class="mb-3 mt-3"><label for="loname" class="form-label">id</label><input type="text" class="form-control" id="id" placeholder="enter id" name="customFieldBtn[]"/></div></div>'
+      '<div class="button-block"><div class="mb-3 mt-3"><label for="label" class="form-label">Label</label><input type="text" class="form-control" id="label" placeholder="Please Enter Label" name="customFieldlabel"/></div><div class="mb-3 mt-3"><label for="id" class="form-label">ID</label><input type="text" class="form-control" id="id" placeholder="Enter Id" name="customFieldBtn"/></div><a href="javascript:void(0);" class="removebtn">Remove</a></div>'
     );
   });
-  // $("#buttonFields").on("click", ".removebtn", function () {
-  //   $(this).parent().parent().remove();
-  // });
+  $("#buttonFields").on("click", ".removebtn", function () {
+    $(this).parent().remove();
+  });
 });
 
 
 
+$(document).ready(function () {
+  $(".Saddbtn").click(function () {
+    $("#RichcardButton").append(
+      '<div class="button-block"><div class="mb-3 mt-3"><label for="label" class="form-label">Label</label><input type="text" class="form-control" id="label" placeholder="Please Enter Label" name="customFieldlabel"/></div><div class="mb-3 mt-3"><label for="label" class="form-label">Type</label><input type="text" class="form-control" id="typetext" placeholder="text" name="typetext"/></div><div class="mb-3 mt-3"><label for="id" class="form-label">ID</label><input type="text" class="form-control" id="id" placeholder="Enter Id" name="customFieldBtn"/></div><a href="javascript:void(0);" class="removebtn">Remove </a></div>'
+    );
+  });
+  $("#RichcardButton").on("click", ".removebtn", function () {
+    $(this).parent().remove();
+  });
+});
 
 
 
-
-
-
-
-
-
+$(document).ready(function () {
+  $(".addcard").click(function () {
+    $("#cardbox").append(
+      '<div class="c-card"><div class="mb-3 mt-3"><label for="url" class="form-label">Image Url</label><input type="text" class="form-control" id="Image url" placeholder="Please Enter Url" name="Image Url"/> </div><div class="mb-3 mt-3"> <label for="url" class="form-label">Title</label> <input type="text" class="form-control" id="s-title" placeholder="Please Enter Title" name="Image Url"/> </div><div class="mb-3 mt-3"> <label for="comment">Description:</label> <textarea class="form-control" rows="5" id="comment" placeholder="Please Enter Description" name="text"></textarea> </div><div class="mb-3 mt-3"> <label for="comment" class="mb-1 mt-1">Height</label> <select class="height form-select"> <option value="Short">Short</option> <option value="Medium">Medium</option> <option value="Tall">Tall</option> </select> </div><div class="template-part-box"> <label for="comment">Buttons</label> <a href="javascript:void(0);" class="carouselBtn">Add Button</a> </div><div class="row" id="carouseladdbtnBox"></div><a href="javascript:void(0);" class="removecard">Remove </a></div>'
+    );
+    $(".carouselBtn").click(function () {
+      alert("hellow");
+      $("#carouseladdbtnBox").append(
+        '<div class="button-block"><div class="mb-3 mt-3"><label for="label" class="form-label">Label</label><input type="text" class="form-control" id="label" placeholder="Please Enter Label" name="customFieldlabel"/></div><div class="mb-3 mt-3"><label for="label" class="form-label">Type</label><input type="text" class="form-control" id="typetext" placeholder="text" name="typetext"/></div><div class="mb-3 mt-3"><label for="id" class="form-label">ID</label><input type="text" class="form-control" id="id" placeholder="Enter Id" name="customFieldBtn"/></div><a href="javascript:void(0);" class="removebtn">Remove </a></div>'
+      );
+    });
+    $("#carouseladdbtnBox").on("click", ".removecard", function () {
+      $(this).parent().parent().remove();
+    });
+  });
+  $("#cardbox").on("click", ".removecard", function () {
+    $(this).parent().remove();
+  });
+});
 
 
 
