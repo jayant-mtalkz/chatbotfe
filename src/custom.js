@@ -168,8 +168,8 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
     `;
       editor.addNode("start", 0, 1, pos_x, pos_y, "start", {}, start);
       break;
-    case "slack":
-      var slackchat = `
+    case "message":
+      var message = `
       <div>
         <div class="title-box" ><i class="fab fa-slack"></i> Message</div>
         <div class="setting-box">
@@ -178,10 +178,10 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
       </div>
       `;
 
-      editor.addNode("slack", 1, 1, pos_x, pos_y, "slack", {}, slackchat);
+      editor.addNode("message", 1, 1, pos_x, pos_y, "message", {}, message);
       break;
-    case "github":
-      var githubtemplate = `
+    case "api":
+      var api = `
       <div>
         <div class="title-box" ><i class="fab fa-slack"></i> API</div>
         <div class="setting-box">
@@ -190,41 +190,34 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
       </div>
       `;
       editor.addNode(
-        "github",
+        "api",
         1,
         1,
         pos_x,
         pos_y,
-        "github",
+        "api",
         { name: "" },
-        githubtemplate
+        api
       );
       break;
-    case "telegram":
-      var telegrambot = `
+    case "delay":
+      var delay = `
       <div>
-        <div class="title-box"><i class="fab fa-telegram-plane"></i> Telegram bot</div>
-        <div class="box">
-          <p>Send to telegram</p>
-          <p>select channel</p>
-          <select df-channel>
-            <option value="channel_1">Channel 1</option>
-            <option value="channel_2">Channel 2</option>
-            <option value="channel_3">Channel 3</option>
-            <option value="channel_4">Channel 4</option>
-          </select>
-        </div>
+      <div class="title-box" ><i class="fab fa-slack"></i>Delay</div>
+      <div class="setting-box">
+        <i class="fa fa-cogs setting-icon" data-bs-toggle="modal" data-bs-target="#DelayModal">
       </div>
+    </div>
       `;
       editor.addNode(
-        "telegram",
+        "delay",
         1,
-        0,
+        1,
         pos_x,
         pos_y,
-        "telegram",
+        "delay",
         { channel: "channel_3" },
-        telegrambot
+        delay
       );
       break;
     case "aws":

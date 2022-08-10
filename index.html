@@ -133,7 +133,7 @@
     top: 15px;
     right: 0;
 }
-a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
+a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.urlEncodedbutton {
     background: #4ea9ff;
     color: #fff;
     text-decoration: none;
@@ -171,12 +171,17 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
                <i class="fab fa-envelope"></i><span> Message</span>
                
                </div> -->
-            <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="slack" >
+            <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="message" >
                <i class="fab fa-slack"></i><span>Message</span>
             </div>
-            <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="github">
+            <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="api">
               <i class="fab fa-github"></i><span>Api</span>
               </div>
+
+              <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="delay">
+                <i class="fab fa-github"></i><span>
+                  Delay Properties</span>
+                </div>
             <!-- <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="github">
                <i class="fab fa-github"></i><span> Github Star</span>
                </div>
@@ -490,7 +495,7 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
 
 
 
-<!-- The Modal -->
+<!-- Api Modal -->
 <div class="modal" id="apiModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -675,6 +680,41 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2 {
 
       <!-- Modal footer -->
       <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Delay Modal -->
+<div class="modal" id="DelayModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Delay Properties</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <p>Delay node can be used to pause the execution for specified time in seconds.</p>
+       <div class="mb-3 mt-3">
+        <label for="Delay" class="form-label">Delay (seconds)</label>
+        <input type="number" class="form-control" id="Delay" placeholder="" name="Delay">
+        </div>
+      </div>
+
+       <!-- Modal footer -->
+       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
       </div>
