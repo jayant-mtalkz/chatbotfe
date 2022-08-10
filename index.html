@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Drawflow</title>
+      <title>Mtalkz</title>
    </head>
    <body>
       <link rel="stylesheet" type="text/css" href="src/drawflow.css" />
@@ -133,7 +133,7 @@
     top: 15px;
     right: 0;
 }
-a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.urlEncodedbutton {
+a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.urlEncodedbutton,.interactiveaddbtn {
     background: #4ea9ff;
     color: #fff;
     text-decoration: none;
@@ -256,6 +256,7 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.ur
                         <option value="Document">Document</option>
                         <option value="Location">Location</option>
                         <option value="Template">Template</option>
+                        <option value="interactive">Interactive Messages</option>
                         <option value="Button">Button</option>
                         <option value="ActionCard">Action Card (GBM)</option>
                      </select>
@@ -323,6 +324,188 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.ur
                               <label for="comment">Buttons</label> <a href="javascript:void(0);" class="addbtn">Add Button</a>
                            </div>
                         </div>
+
+                        <div class="row dfield" id="interactive" style="display: none;">
+                          <div class="mb-3 mt-3">
+                            <label for="comment" class="mb-1 mt-1">Action:</label>
+                            <select class="form-select" name="type" id="InteractiveAction" >
+                              <option value="button">Button</option>
+                              <option value="list">List</option>
+                              <option value="product">Single Product</option>
+                              <option value="product_list">Multi Product</option>
+                           </select>
+                          </div>
+                    
+
+
+                         
+                       </div>
+                   
+                 <div class="row dfield" id="InteractiveButtonBlock">
+                  <div class="mb-3 mt-3">
+                    <label for="comment" class="mb-1 mt-1">Header Type:</label>
+                    <select class="form-select" name="type" id="HeaderType">
+                      <option value="text">TEXT</option>
+<option value="image">IMAGE</option>
+<option value="video">VIDEO</option>
+<option value="document">DOCUMENT</option>
+                   </select>
+                  </div>
+                  <div class="Headertext" id="Headertext" style="display: none;">
+                  <div class="mb-3 mt-3">
+                    <label for="comment">Header Text:</label>
+                    <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                 </div>
+                 </div>
+
+                <div class="resource" id="resource" style="display: none;">
+                 <div class="mb-3 mt-3">
+                  <label for="resourceUrl">Uploaded URL of Selected Media(image/media/document)</label>
+                  <input type="text" class="form-control" id="resourceUrl" placeholder="Please enter uploaded url of media" name="resourceUrl">
+                  
+               </div>
+              </div>
+
+              <div class="filename" id="filename" style="display: none;">
+                <div class="mb-3 mt-3">
+                 <label for="filename">FileName</label>
+                 <input type="text" class="form-control" id="filename" placeholder="Please enter file name of document" name="filename">
+                 
+              </div>
+             </div>
+
+                 <div class="mb-3 mt-3">
+                  <label for="comment">Body Text:</label>
+                  <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+               </div>
+
+               <div class="mb-3 mt-3">
+                <label for="comment">Footer Text:</label>
+                <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+             </div>
+             <div class="mb-3 mt-3">
+             <div class="template-part-box">
+              <label for="comment">Buttons</label> <a href="javascript:void(0);" class="interactiveaddbtn">Add Button</a>
+           </div>
+           <div class="table-responsive">
+            <table class="table table-bordered"  id="interactiveBtnBlock">
+               <tr valign="top">
+                  <th>Id</th>
+                  <th>Title</th>
+                
+               </tr>
+            </table>
+         </div>
+
+
+           </div>
+
+           </div>
+
+           <div class="row dfield" id="InteractiveListBlock">
+            <div class="mb-3 mt-3">
+              <label for="comment" class="mb-1 mt-1">Header Type:</label>
+              <select class="form-select" name="type" >
+                <option value="text">TEXT</option>
+
+             </select>
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="comment">Header Text:</label>
+              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+           </div>
+           <div class="mb-3 mt-3">
+            <label for="comment">Body Text:</label>
+            <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+         </div>
+
+         <div class="mb-3 mt-3">
+          <label for="comment">Footer Text:</label>
+          <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+       </div>
+       <div class="mb-3 mt-3">
+        <label for="ButtonLabel" class="form-label">Button Label</label>
+        <input type="text" class="form-control" id="ButtonLabel" placeholder="Label for list submit button" name="ButtonLabel"/>
+      </div>
+       <div class="mb-3 mt-3">
+        <div class="template-part-box">
+          <label for="comment">Section</label> <a href="javascript:void(0);" class="listAddSection">Add</a>
+       </div>
+     <div class="listAddSectionBlock" id="listAddSectionBlock">
+     
+
+   </div>
+
+
+     </div>
+
+     </div>
+
+          <div class="row dfield" id="InteractiveProductListBlock">
+                 
+            <div class="mb-3 mt-3">
+                  <label for="comment">Body Text:</label>
+                  <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="comment">Footer Text:</label>
+                <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="CatalogId" class="form-label">Catalog Id</label>
+              <input type="text" class="form-control" id="CatalogId" placeholder="Please Enter Catalog Id" name="CatalogIdl"/>
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="ProductRetailerId" class="form-label">Product Retailer Id</label>
+              <input type="text" class="form-control" id="ProductRetailerId" placeholder="Please Enter Product Retailer Id" name="ProductRetailerId"/>
+            </div>
+           
+
+           </div>
+
+
+
+           <div class="row dfield" id="multiproductBlock">
+            <div class="mb-3 mt-3">
+              <label for="comment" class="mb-1 mt-1">Header Text:</label>
+              <select class="form-select" name="type" >
+                <option value="text">TEXT</option>
+
+             </select>
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="comment">Header Text:</label>
+              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+           </div>
+           <div class="mb-3 mt-3">
+            <label for="comment">Body Text:</label>
+            <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+         </div>
+
+         <div class="mb-3 mt-3">
+          <label for="comment">Footer Text:</label>
+          <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+       </div>
+
+       <div class="mb-3 mt-3">
+        <label for="CatalogId" class="form-label">Catalog Id</label>
+        <input type="text" class="form-control" id="CatalogId" placeholder="Please Enter Catalog Id" name="CatalogIdl"/>
+      </div>
+       <div class="mb-3 mt-3">
+        <div class="template-part-box">
+          <label for="comment">Product Retailer Ids</label> <a href="javascript:void(0);" class="ProductlistAddSection">Add</a>
+       </div>
+     <div class="ProductlistAddSectionBlock" id="ProductlistAddSectionBlock">
+     
+
+   </div>
+
+
+     </div>
+
+     </div>
+
 
 
 

@@ -1,3 +1,7 @@
+
+
+
+
 var id = document.getElementById("drawflow");
 const editor = new Drawflow(id);
 editor.reroute = true;
@@ -453,6 +457,10 @@ $(function () {
      
       $(".dfield").hide();
       $("#Richcard").show();
+    }else if ($("#type").val() == "interactive") {
+    
+      $(".dfield").hide();
+      $("#interactive").show();
     }
     
     else {
@@ -605,6 +613,58 @@ $(document).ready(function () {
 
 
 
+$(document).ready(function () {
+  $(".listAddSection").click(function () {
+    alert("abc");
+    $("#listAddSectionBlock").append(
+      '<div class="button-block"><div class="listAddSectionBlock" id="listAddSectionBlock"><div class="mb-3 mt-3"><label for="title" class="form-label">Title</label><input type="text" class="form-control" id="title" placeholder="Enter" name="title"><div class="template-part-box"><label for="comment">Rows</label><a href="javascript:void(0);" class="listAddrow">Add Row</a></div><div class="helper-text"><p>*Row Title is mandatory and maximum length is 24 characters)</p><p>*ID is mandatory and maximum length is 200 characters)</p><p>*Description is optional and maximum length is 72 characters),</p></div></div><div class="addrowBlock"></div></div> <a href="javascript:void(0);" class="removebtn">Remove </a></div>'
+    );
+
+    $(".listAddrow").click(function () {
+      alert("test Message");
+      $(".addrowBlock").append(
+        '<div class="button-block"><div class="mb-3 mt-3"><label for="label" class="form-label">Label</label><input type="text" class="form-control" id="label" placeholder="Please Enter Label" name="customFieldlabel"/></div><div class="mb-3 mt-3"><label for="label" class="form-label">Type</label><input type="text" class="form-control" id="typetext" placeholder="text" name="typetext"/></div><div class="mb-3 mt-3"><label for="id" class="form-label">ID</label><input type="text" class="form-control" id="id" placeholder="Enter Id" name="customFieldBtn"/></div><a href="javascript:void(0);" class="removebtn">Remove </a></div>'
+      );
+    });
+    $(".addrowBlock").on("click", ".removebtn", function () {
+      $(this).parent().remove();
+    });
+
+  });
+  $("#listAddSectionBlock").on("click", ".removebtn", function () {
+    $(this).parent().remove();
+  });
+});
+
+
+
+$(document).ready(function () {
+  $(".ProductlistAddSection").click(function () {
+    alert("abc");
+    $("#ProductlistAddSectionBlock").append(
+      '<div class="button-block"><div class="ProductlistAddSectionBlock" id="ProductlistAddSectionBlock"><div class="mb-3 mt-3"><label for="title" class="form-label">Title</label><input type="text" class="form-control" id="title" placeholder="Enter" name="title"><div class="template-part-box"><label for="comment">Rows</label><a href="javascript:void(0);" class="ProductlistAddrow">Add Row</a></div><div class="helper-text"><p>*Product Retailer Id is mandatory </p></div></div><div class="addrowBlock"></div></div> <a href="javascript:void(0);" class="removebtn">Remove </a></div>'
+    );
+
+    $(".ProductlistAddrow").click(function () {
+      alert("test Message");
+      $(".ProductaddrowBlock").append(
+        '<div class="button-block"><div class="mb-3 mt-3"><label for="label" class="form-label">Label</label><input type="text" class="form-control" id="label" placeholder="Please Enter Label" name="customFieldlabel"/></div><div class="mb-3 mt-3"><label for="label" class="form-label">Type</label><input type="text" class="form-control" id="typetext" placeholder="text" name="typetext"/></div><div class="mb-3 mt-3"><label for="id" class="form-label">ID</label><input type="text" class="form-control" id="id" placeholder="Enter Id" name="customFieldBtn"/></div><a href="javascript:void(0);" class="removebtn">Remove </a></div>'
+      );
+    });
+    $(".ProductaddrowBlock").on("click", ".removebtn", function () {
+      $(this).parent().remove();
+    });
+
+  });
+  $("#ProductlistAddSectionBlock").on("click", ".removebtn", function () {
+    $(this).parent().remove();
+  });
+});
+
+
+
+
+
 
 $(document).ready(function () {
   $(".addcard").click(function () {
@@ -625,6 +685,15 @@ $(document).ready(function () {
     $(this).parent().remove();
   });
 });
+
+
+
+
+
+
+
+
+
 
 
 
@@ -688,3 +757,88 @@ $(document).ready(function(){
       $(targetBox).show();
   });
 })
+
+
+
+
+
+$(document).ready(function () {
+  $(".interactiveaddbtn").click(function () {
+
+    $("#interactiveBtnBlock").append(
+      '<tr valign="top"><td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Id" /></td><td> <input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Title" /></td> <td> <a href="javascript:void(0);" class="removebtn">Remove</a></td></tr>');
+  });
+  $("#interactiveBtnBlock").on("click", ".removebtn", function () {
+    $(this).parent().parent().remove();
+  });
+});
+
+
+
+
+$(function () {
+  $("#InteractiveAction").change(function () {
+    if ($("#InteractiveAction").val() == "button") {
+      $(".dfield").hide();
+      $("#InteractiveButtonBlock").show();
+      $("#interactive").show();
+     }else if ($("#InteractiveAction").val() == "list") {
+      $(".dfield").hide();
+      $("#InteractiveListBlock").show();
+      
+      $("#interactive").show();
+    }else if ($("#InteractiveAction").val() == "product") {
+      $(".dfield").hide();
+      $("#InteractiveProductListBlock").show();
+      $("#interactive").show();
+    }else if ($("#InteractiveAction").val() == "product_list") {
+      $(".dfield").hide();
+      $("#multiproductBlock").show();
+     
+      $("#interactive").show();
+    }  else {
+      $(".interactive").hide();
+    }
+  });
+});
+
+
+$(function () {
+  $("#HeaderType").change(function () {
+    if ($("#HeaderType").val() == "image") {
+     
+      $(".resource").show();
+      $(".Headertext").hide();
+      $("#filename").hide();
+     }else if ($("#HeaderType").val() == "text") {
+      
+    
+      $(".Headertext").show();
+      $(".resource").hide();
+      $("#filename").hide();
+    }else if ($("#HeaderType").val() == "document") {
+     
+      $(".Headertext").hide();
+      $(".resource").show();
+      $("#filename").show();
+      
+    }else if ($("#HeaderType").val() == "video") {
+     
+      $(".Headertext").hide();
+      $(".resource").show();
+      $("#filename").hide();
+    } else {
+      $(".interactive").hide();
+      $("#filename").hide();
+    }
+  });
+});
+
+
+editor.on("connectionCreated", function(info) {
+  const nodeInfo = editor.getNodeFromId(info.output_id);
+  if(nodeInfo.outputs[info.output_class].connections.length > 1) {
+    const removeConnectionInfo = nodeInfo.outputs[info.output_class].connections[0];
+    editor.removeSingleConnection(info.output_id, removeConnectionInfo.node, info.output_class, removeConnectionInfo.output);
+  }
+});
