@@ -180,6 +180,9 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
           <i class="fa fa-cogs setting-icon" data-bs-toggle="modal" data-bs-target="#myModal">
         </div>
       </div>
+
+
+      
       `;
 
       editor.addNode("message", 1, 1, pos_x, pos_y, "message", {}, message);
@@ -289,15 +292,18 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
         template
       );
       break;
-    case "multiple":
-      var multiple = `
+    case "Decision":
+      var Decision = `
         <div>
           <div class="box">
-            Multiple!
+          Decision!
           </div>
+          <div class="setting-box">
+          <i class="fa fa-cogs setting-icon" data-bs-toggle="modal" data-bs-target="#DecisionModal">
+        </div>
         </div>
         `;
-      editor.addNode("multiple", 3, 4, pos_x, pos_y, "multiple", {}, multiple);
+      editor.addNode("Decision", 3, 4, pos_x, pos_y, "Decision", {}, Decision);
       break;
     case "personalized":
       var personalized = `
@@ -648,7 +654,7 @@ $(document).ready(function () {
     $(".ProductlistAddrow").click(function () {
       alert("test Message");
       $(".ProductaddrowBlock").append(
-        '<div class="button-block"><div class="mb-3 mt-3"><label for="label" class="form-label">Label</label><input type="text" class="form-control" id="label" placeholder="Please Enter Label" name="customFieldlabel"/></div><div class="mb-3 mt-3"><label for="label" class="form-label">Type</label><input type="text" class="form-control" id="typetext" placeholder="text" name="typetext"/></div><div class="mb-3 mt-3"><label for="id" class="form-label">ID</label><input type="text" class="form-control" id="id" placeholder="Enter Id" name="customFieldBtn"/></div><a href="javascript:void(0);" class="removebtn">Remove </a></div>'
+        '<div class="button-block"><div class="mb-3 mt-3"><label for="label" class="form-label">Label</label><input type="text" class="form-control" id="label" placeholder="Please Enter Label" name="customFieldlabel"/></div><div class="mb-3 mt-3"><label for="label" class="form-label">Type</label><input type="text" class="form-control" id="typetext" placeholder="text" name="typetext"/></div><div class="mb-3 mt-3"><label for="id" class="form-label">ID</label><input type="text" class="form-control" id="id" placeholder="Enter Id" name="customFieldBtn"/> <div class="ProductaddrowBlock"></div></div><a href="javascript:void(0);" class="removebtn">Remove </a></div>'
       );
     });
     $(".ProductaddrowBlock").on("click", ".removebtn", function () {
@@ -835,6 +841,36 @@ $(function () {
 });
 
 
+
+
+
+$(document).ready(function () {
+  let count = 0;
+  $(".Decision-addBranch").click(function () {
+  
+    $("#DecisionBlock").append(
+      '<div class="row dfield decision-field " id="first'+ count +'" style="display: block;"><div class="col-lg-3 mt-4"><input type="text" class="BranchLabel form-control"  id="BranchLabel'+ count +'"  placeholder="Branch Label"></div><div class="mb-3 "><label for="comment"></label><textarea class="form-control" rows="5" id="raw_condition'+ count +'"  name="raw_condition"></textarea><a href="javascript:void(0);" class="removebtn">Remove</a></div></div>');
+      count++;
+    
+    });
+
+  $("#DecisionBlock").on("click", ".removebtn", function () {
+    $(this).parent().parent().remove();
+  });
+
+});
+
+
+// $(function(){
+//   var count = 0;
+//   $('#append').click(function(){
+//     $('#parent').append('<div id="first'+count+'">text</div>');
+//     count++;
+//   });
+// });
+
+// Code for Single Node  connection
+
 editor.on("connectionCreated", function(info) {
   const nodeInfo = editor.getNodeFromId(info.output_id);
   if(nodeInfo.outputs[info.output_class].connections.length > 1) {
@@ -842,3 +878,8 @@ editor.on("connectionCreated", function(info) {
     editor.removeSingleConnection(info.output_id, removeConnectionInfo.node, info.output_class, removeConnectionInfo.output);
   }
 });
+
+
+
+// BranchLabel
+// raw_condition

@@ -20,18 +20,18 @@
       <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
       <style>
-        a{
-          text-decoration: none;
-        }
+         a{
+         text-decoration: none;
+         }
          .modal {
          background-color: rgb(0 0 0 / 22%);
          }
          .modal-header{
-          padding: 10px 0px;
+         padding: 10px 0px;
          }
          .modal-body {
-    padding: 1rem 0px;
-}
+         padding: 1rem 0px;
+         }
          label {
          padding-bottom: 5px;
          }
@@ -101,61 +101,84 @@
          width: 100%;
          padding: 5px 5px;
          }
-         .button-block {
+         .button-block{
          background: gainsboro;
          padding: 5px 15px;
          margin-bottom: 10px;
          position: relative;
          }
-         .button-block .removebtn,.removecard {
-    position: absolute;
-    top: 15px;
-    right: 20px;
+         .button-block .removebtn,.removecard{
+         position: absolute;
+         top: 15px;
+         right: 20px;
+         background: #e3195a;
+         text-decoration: none;
+         color: #fff;
+         padding: 4px 20px;
+         border-radius: 5px;
+         }
+         .decision-field {
+    position: relative;
+}
+         .Decision-addBranch {
+   background: #4ea9ff;
+   border: none;
+   padding: 5px 15px;
+   margin-bottom: 10px;
+   color:#fff;
+}
+#DecisionBlock .removebtn {
     background: #e3195a;
     text-decoration: none;
     color: #fff;
     padding: 4px 20px;
     border-radius: 5px;
-}
-         .card-box {
-    background: gainsboro;
-    padding: 15px 20px;
-}
-
-.c-card {
-    border-top: 10px solid #fff;
-    margin-top: 20px;
-    position:relative;
-}
-
-.removecard {
     position: absolute;
-    top: 15px;
-    right: 0;
+    right: 16px;
+    top: 5px;
 }
-a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.urlEncodedbutton,.interactiveaddbtn {
-    background: #4ea9ff;
+
+         .card-box {
+         background: gainsboro;
+         padding: 15px 20px;
+         }
+         .c-card {
+         border-top: 10px solid #fff;
+         margin-top: 20px;
+         position:relative;
+         }
+         .removecard {
+         position: absolute;
+         top: 15px;
+         right: 0;
+         }
+         a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.urlEncodedbutton,.interactiveaddbtn {
+         background: #4ea9ff;
+         color: #fff;
+         text-decoration: none;
+         padding: 5px 10px;
+         border-radius: 5px;
+         }   
+         .drawflow .drawflow-node.selected {
+         background: #e3195a;
+         border: none;
+         }
+         .radio-box {
+         display: flex;
+         }
+         .bobox{
+         display: none;
+         }
+         .tab-pane {
+         padding: 0px;
+         }
+         .branch.default_condition p {
+    line-height: 2.3;
+    margin: 0px;
+}
+.selected .box {
     color: #fff;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-}   
-
-.drawflow .drawflow-node.selected {
-    background: #e3195a;
-    border: none;
-}
-
-.radio-box {
-    display: flex;
-}
-
-.bobox{
-  display: none;
-}
-
-.tab-pane {
-    padding: 0px;
+  
 }
       </style>
       <header>
@@ -175,13 +198,15 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.ur
                <i class="fab fa-slack"></i><span>Message</span>
             </div>
             <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="api">
-              <i class="fab fa-github"></i><span>Api</span>
-              </div>
-
-              <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="delay">
-                <i class="fab fa-github"></i><span>
-                  Delay Properties</span>
-                </div>
+               <i class="fab fa-github"></i><span>Api</span>
+            </div>
+            <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="delay">
+               <i class="fab fa-clock"></i><span>
+               Delay Properties</span>
+            </div>
+            <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="Decision">
+               <i class="fas fa-code-branch"></i><span>Decision</span>
+               </div>
             <!-- <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="github">
                <i class="fab fa-github"></i><span> Github Star</span>
                </div>
@@ -324,286 +349,220 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.ur
                               <label for="comment">Buttons</label> <a href="javascript:void(0);" class="addbtn">Add Button</a>
                            </div>
                         </div>
-
                         <div class="row dfield" id="interactive" style="display: none;">
-                          <div class="mb-3 mt-3">
-                            <label for="comment" class="mb-1 mt-1">Action:</label>
-                            <select class="form-select" name="type" id="InteractiveAction" >
-                              <option value="button">Button</option>
-                              <option value="list">List</option>
-                              <option value="product">Single Product</option>
-                              <option value="product_list">Multi Product</option>
-                           </select>
-                          </div>
-                    
-
-
-                         
-                       </div>
-                   
-                 <div class="row dfield" id="InteractiveButtonBlock">
-                  <div class="mb-3 mt-3">
-                    <label for="comment" class="mb-1 mt-1">Header Type:</label>
-                    <select class="form-select" name="type" id="HeaderType">
-                      <option value="text">TEXT</option>
-<option value="image">IMAGE</option>
-<option value="video">VIDEO</option>
-<option value="document">DOCUMENT</option>
-                   </select>
-                  </div>
-                  <div class="Headertext" id="Headertext" style="display: none;">
-                  <div class="mb-3 mt-3">
-                    <label for="comment">Header Text:</label>
-                    <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-                 </div>
-                 </div>
-
-                <div class="resource" id="resource" style="display: none;">
-                 <div class="mb-3 mt-3">
-                  <label for="resourceUrl">Uploaded URL of Selected Media(image/media/document)</label>
-                  <input type="text" class="form-control" id="resourceUrl" placeholder="Please enter uploaded url of media" name="resourceUrl">
-                  
-               </div>
-              </div>
-
-              <div class="filename" id="filename" style="display: none;">
-                <div class="mb-3 mt-3">
-                 <label for="filename">FileName</label>
-                 <input type="text" class="form-control" id="filename" placeholder="Please enter file name of document" name="filename">
-                 
-              </div>
-             </div>
-
-                 <div class="mb-3 mt-3">
-                  <label for="comment">Body Text:</label>
-                  <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-               </div>
-
-               <div class="mb-3 mt-3">
-                <label for="comment">Footer Text:</label>
-                <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-             </div>
-             <div class="mb-3 mt-3">
-             <div class="template-part-box">
-              <label for="comment">Buttons</label> <a href="javascript:void(0);" class="interactiveaddbtn">Add Button</a>
-           </div>
-           <div class="table-responsive">
-            <table class="table table-bordered"  id="interactiveBtnBlock">
-               <tr valign="top">
-                  <th>Id</th>
-                  <th>Title</th>
-                
-               </tr>
-            </table>
-         </div>
-
-
-           </div>
-
-           </div>
-
-           <div class="row dfield" id="InteractiveListBlock">
-            <div class="mb-3 mt-3">
-              <label for="comment" class="mb-1 mt-1">Header Type:</label>
-              <select class="form-select" name="type" >
-                <option value="text">TEXT</option>
-
-             </select>
-            </div>
-            <div class="mb-3 mt-3">
-              <label for="comment">Header Text:</label>
-              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-           </div>
-           <div class="mb-3 mt-3">
-            <label for="comment">Body Text:</label>
-            <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-         </div>
-
-         <div class="mb-3 mt-3">
-          <label for="comment">Footer Text:</label>
-          <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-       </div>
-       <div class="mb-3 mt-3">
-        <label for="ButtonLabel" class="form-label">Button Label</label>
-        <input type="text" class="form-control" id="ButtonLabel" placeholder="Label for list submit button" name="ButtonLabel"/>
-      </div>
-       <div class="mb-3 mt-3">
-        <div class="template-part-box">
-          <label for="comment">Section</label> <a href="javascript:void(0);" class="listAddSection">Add</a>
-       </div>
-     <div class="listAddSectionBlock" id="listAddSectionBlock">
-     
-
-   </div>
-
-
-     </div>
-
-     </div>
-
-          <div class="row dfield" id="InteractiveProductListBlock">
-                 
-            <div class="mb-3 mt-3">
-                  <label for="comment">Body Text:</label>
-                  <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-            </div>
-
-            <div class="mb-3 mt-3">
-                <label for="comment">Footer Text:</label>
-                <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-            </div>
-            <div class="mb-3 mt-3">
-              <label for="CatalogId" class="form-label">Catalog Id</label>
-              <input type="text" class="form-control" id="CatalogId" placeholder="Please Enter Catalog Id" name="CatalogIdl"/>
-            </div>
-            <div class="mb-3 mt-3">
-              <label for="ProductRetailerId" class="form-label">Product Retailer Id</label>
-              <input type="text" class="form-control" id="ProductRetailerId" placeholder="Please Enter Product Retailer Id" name="ProductRetailerId"/>
-            </div>
-           
-
-           </div>
-
-
-
-           <div class="row dfield" id="multiproductBlock">
-            <div class="mb-3 mt-3">
-              <label for="comment" class="mb-1 mt-1">Header Text:</label>
-              <select class="form-select" name="type" >
-                <option value="text">TEXT</option>
-
-             </select>
-            </div>
-            <div class="mb-3 mt-3">
-              <label for="comment">Header Text:</label>
-              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-           </div>
-           <div class="mb-3 mt-3">
-            <label for="comment">Body Text:</label>
-            <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-         </div>
-
-         <div class="mb-3 mt-3">
-          <label for="comment">Footer Text:</label>
-          <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-       </div>
-
-       <div class="mb-3 mt-3">
-        <label for="CatalogId" class="form-label">Catalog Id</label>
-        <input type="text" class="form-control" id="CatalogId" placeholder="Please Enter Catalog Id" name="CatalogIdl"/>
-      </div>
-       <div class="mb-3 mt-3">
-        <div class="template-part-box">
-          <label for="comment">Product Retailer Ids</label> <a href="javascript:void(0);" class="ProductlistAddSection">Add</a>
-       </div>
-     <div class="ProductlistAddSectionBlock" id="ProductlistAddSectionBlock">
-     
-
-   </div>
-
-
-     </div>
-
-     </div>
-
-
-
-
-
-
-                        <div class="row dfield" id="Richcard">
-                          <label for="comment" class="mb-1 mt-1">Richcard Type</label>
-                          <select class="cardType form-select" id="cardType">
-                            <option value="standalone">Standalone</option>
-                            <option value="carousel">Carousel</option>
-                          </select>
-          
-                          <div class="cardContainer standaloneContainer">
-                            
-                          
-                              <div class="c-card">
-                              <div class="mb-3 mt-3">
-                                <label for="url" class="form-label">Image Url</label>
-                                <input type="text" class="form-control" id="Image url" placeholder="Please Enter Url" name="Image Url"/>
-                              </div>
-                              <div class="mb-3 mt-3">
-                                <label for="url" class="form-label">Title</label>
-                                <input type="text" class="form-control" id="s-title" placeholder="Please Enter Title" name="Image Url"/>
-                              </div>
-                              <div class="mb-3 mt-3">
-                                <label for="comment">Description:</label>
-                                <textarea class="form-control" rows="5" id="comment" placeholder="Please Enter Description" name="text"></textarea>
-                              </div>
-                              <div class="mb-3 mt-3">
-                                <label for="comment" class="mb-1 mt-1">Height</label>
-                            
-                                <select class="height form-select">
-                                  <option value="Short">Short</option>
-                                  <option value="Medium">Medium</option>
-                                  <option value="Tall">Tall</option>
-                                </select>
-                              </div>
-
-                              <div class="template-part-box">
-                                <label for="comment">Buttons</label> <a href="javascript:void(0);" class="Saddbtn">Add Button</a>
-                             </div>
-                             <div class="row" id="RichcardButton"></div>
-
-
-                            </div>
-                         
-                         
-                          </div>
-
-                          <div class="cardContainer CarouselContainer" style="display: none;">
-                            
-                            <div class="mb-3 mt-3">
-                              <label for="url" class="form-label">Card Width</label>
-                              <input type="text" class="form-control" id="cardWdith" placeholder="Medium" name="cardWdith"/>
-                            </div>
-                            <div class="template-part-box">
-                              <label for="comment">Buttons</label> <a href="javascript:void(0);" class="addcard">Add Card</a>
-                           </div>
-
-                            <div class="c-card">
-                            <div class="mb-3 mt-3">
-                              <label for="url" class="form-label">Image Url</label>
-                              <input type="text" class="form-control" id="Image url" placeholder="Please Enter Url" name="Image Url"/>
-                            </div>
-                            <div class="mb-3 mt-3">
-                              <label for="url" class="form-label">Title</label>
-                              <input type="text" class="form-control" id="s-title" placeholder="Please Enter Title" name="Image Url"/>
-                            </div>
-                            <div class="mb-3 mt-3">
-                              <label for="comment">Description:</label>
-                              <textarea class="form-control" rows="5" id="comment" placeholder="Please Enter Description" name="text"></textarea>
-                            </div>
-                            <div class="mb-3 mt-3">
-                              <label for="comment" class="mb-1 mt-1">Height</label>
-                              <select class="height form-select">
-                                <option value="Short">Short</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Tall">Tall</option>
+                           <div class="mb-3 mt-3">
+                              <label for="comment" class="mb-1 mt-1">Action:</label>
+                              <select class="form-select" name="type" id="InteractiveAction" >
+                                 <option value="button">Button</option>
+                                 <option value="list">List</option>
+                                 <option value="product">Single Product</option>
+                                 <option value="product_list">Multi Product</option>
                               </select>
-                            </div>
-
-                            <div class="template-part-box">
-                              <label for="comment">Buttons</label> <a href="javascript:void(0);" class="Saddbtn">Add Button</a>
                            </div>
-                           <div class="row" id="RichcardButton"></div>
-
-
-                          </div>
-<div class="card-box" id="cardbox"></div>
-                        
-                       
-                       
                         </div>
-          
-                          </div>
+                        <div class="row dfield" id="InteractiveButtonBlock">
+                           <div class="mb-3 mt-3">
+                              <label for="comment" class="mb-1 mt-1">Header Type:</label>
+                              <select class="form-select" name="type" id="HeaderType">
+                                 <option value="text">TEXT</option>
+                                 <option value="image">IMAGE</option>
+                                 <option value="video">VIDEO</option>
+                                 <option value="document">DOCUMENT</option>
+                              </select>
+                           </div>
+                           <div class="Headertext" id="Headertext" style="display: none;">
+                              <div class="mb-3 mt-3">
+                                 <label for="comment">Header Text:</label>
+                                 <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                              </div>
+                           </div>
+                           <div class="resource" id="resource" style="display: none;">
+                              <div class="mb-3 mt-3">
+                                 <label for="resourceUrl">Uploaded URL of Selected Media(image/media/document)</label>
+                                 <input type="text" class="form-control" id="resourceUrl" placeholder="Please enter uploaded url of media" name="resourceUrl">
+                              </div>
+                           </div>
+                           <div class="filename" id="filename" style="display: none;">
+                              <div class="mb-3 mt-3">
+                                 <label for="filename">FileName</label>
+                                 <input type="text" class="form-control" id="filename" placeholder="Please enter file name of document" name="filename">
+                              </div>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="comment">Body Text:</label>
+                              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="comment">Footer Text:</label>
+                              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <div class="template-part-box">
+                                 <label for="comment">Buttons</label> <a href="javascript:void(0);" class="interactiveaddbtn">Add Button</a>
+                              </div>
+                              <div class="table-responsive">
+                                 <table class="table table-bordered"  id="interactiveBtnBlock">
+                                    <tr valign="top">
+                                       <th>Id</th>
+                                       <th>Title</th>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row dfield" id="InteractiveListBlock">
+                           <div class="mb-3 mt-3">
+                              <label for="comment" class="mb-1 mt-1">Header Type:</label>
+                              <select class="form-select" name="type" >
+                                 <option value="text">TEXT</option>
+                              </select>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="comment">Header Text:</label>
+                              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="comment">Body Text:</label>
+                              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="comment">Footer Text:</label>
+                              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="ButtonLabel" class="form-label">Button Label</label>
+                              <input type="text" class="form-control" id="ButtonLabel" placeholder="Label for list submit button" name="ButtonLabel"/>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <div class="template-part-box">
+                                 <label for="comment">Section</label> <a href="javascript:void(0);" class="listAddSection">Add</a>
+                              </div>
+                              <div class="listAddSectionBlock" id="listAddSectionBlock">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row dfield" id="InteractiveProductListBlock">
+                           <div class="mb-3 mt-3">
+                              <label for="comment">Body Text:</label>
+                              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="comment">Footer Text:</label>
+                              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="CatalogId" class="form-label">Catalog Id</label>
+                              <input type="text" class="form-control" id="CatalogId" placeholder="Please Enter Catalog Id" name="CatalogIdl"/>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="ProductRetailerId" class="form-label">Product Retailer Id</label>
+                              <input type="text" class="form-control" id="ProductRetailerId" placeholder="Please Enter Product Retailer Id" name="ProductRetailerId"/>
+                           </div>
+                        </div>
+                        <div class="row dfield" id="multiproductBlock">
+                           <div class="mb-3 mt-3">
+                              <label for="comment" class="mb-1 mt-1">Header Text:</label>
+                              <select class="form-select" name="type" >
+                                 <option value="text">TEXT</option>
+                              </select>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="comment">Header Text:</label>
+                              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="comment">Body Text:</label>
+                              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="comment">Footer Text:</label>
+                              <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <label for="CatalogId" class="form-label">Catalog Id</label>
+                              <input type="text" class="form-control" id="CatalogId" placeholder="Please Enter Catalog Id" name="CatalogIdl"/>
+                           </div>
+                           <div class="mb-3 mt-3">
+                              <div class="template-part-box">
+                                 <label for="comment">Product Retailer Ids</label> <a href="javascript:void(0);" class="ProductlistAddSection">Add</a>
+                              </div>
+                              <div class="ProductlistAddSectionBlock" id="ProductlistAddSectionBlock">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row dfield" id="Richcard">
+                           <label for="comment" class="mb-1 mt-1">Richcard Type</label>
+                           <select class="cardType form-select" id="cardType">
+                              <option value="standalone">Standalone</option>
+                              <option value="carousel">Carousel</option>
+                           </select>
+                           <div class="cardContainer standaloneContainer">
+                              <div class="c-card">
+                                 <div class="mb-3 mt-3">
+                                    <label for="url" class="form-label">Image Url</label>
+                                    <input type="text" class="form-control" id="Image url" placeholder="Please Enter Url" name="Image Url"/>
+                                 </div>
+                                 <div class="mb-3 mt-3">
+                                    <label for="url" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="s-title" placeholder="Please Enter Title" name="Image Url"/>
+                                 </div>
+                                 <div class="mb-3 mt-3">
+                                    <label for="comment">Description:</label>
+                                    <textarea class="form-control" rows="5" id="comment" placeholder="Please Enter Description" name="text"></textarea>
+                                 </div>
+                                 <div class="mb-3 mt-3">
+                                    <label for="comment" class="mb-1 mt-1">Height</label>
+                                    <select class="height form-select">
+                                       <option value="Short">Short</option>
+                                       <option value="Medium">Medium</option>
+                                       <option value="Tall">Tall</option>
+                                    </select>
+                                 </div>
+                                 <div class="template-part-box">
+                                    <label for="comment">Buttons</label> <a href="javascript:void(0);" class="Saddbtn">Add Button</a>
+                                 </div>
+                                 <div class="row" id="RichcardButton"></div>
+                              </div>
+                           </div>
+                           <div class="cardContainer CarouselContainer" style="display: none;">
+                              <div class="mb-3 mt-3">
+                                 <label for="url" class="form-label">Card Width</label>
+                                 <input type="text" class="form-control" id="cardWdith" placeholder="Medium" name="cardWdith"/>
+                              </div>
+                              <div class="template-part-box">
+                                 <label for="comment">Buttons</label> <a href="javascript:void(0);" class="addcard">Add Card</a>
+                              </div>
+                              <div class="c-card">
+                                 <div class="mb-3 mt-3">
+                                    <label for="url" class="form-label">Image Url</label>
+                                    <input type="text" class="form-control" id="Image url" placeholder="Please Enter Url" name="Image Url"/>
+                                 </div>
+                                 <div class="mb-3 mt-3">
+                                    <label for="url" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="s-title" placeholder="Please Enter Title" name="Image Url"/>
+                                 </div>
+                                 <div class="mb-3 mt-3">
+                                    <label for="comment">Description:</label>
+                                    <textarea class="form-control" rows="5" id="comment" placeholder="Please Enter Description" name="text"></textarea>
+                                 </div>
+                                 <div class="mb-3 mt-3">
+                                    <label for="comment" class="mb-1 mt-1">Height</label>
+                                    <select class="height form-select">
+                                       <option value="Short">Short</option>
+                                       <option value="Medium">Medium</option>
+                                       <option value="Tall">Tall</option>
+                                    </select>
+                                 </div>
+                                 <div class="template-part-box">
+                                    <label for="comment">Buttons</label> <a href="javascript:void(0);" class="Saddbtn">Add Button</a>
+                                 </div>
+                                 <div class="row" id="RichcardButton"></div>
+                              </div>
+                              <div class="card-box" id="cardbox"></div>
+                           </div>
+                        </div>
                </div>
                </fieldset>
-
                <fieldset class="scheduler-border">
                <div class="mb-3 mt-3">
                <label for="comment">Response Type:</label>
@@ -638,8 +597,6 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.ur
                </div>
                </div>
                </fieldset>
-
-
                <fieldset class="scheduler-border">
                <div class="mb-3 mt-3">
                <div class="form-check">
@@ -663,10 +620,6 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.ur
                </div>
                </div>
                </fieldset>
-
-
-              
-              
                <div class="button-box">
                <button type="submit" class="btn btn-primary mt-3">Save</button>
                </div>
@@ -674,237 +627,222 @@ a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.ur
             </div>
          </div>
       </div>
-
-
-
-
-<!-- Api Modal -->
-<div class="modal" id="apiModal">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">API Properties</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      <!-- Api Modal -->
+      <div class="modal" id="apiModal">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                  <h4 class="modal-title">API Properties</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+               </div>
+               <!-- Modal body -->
+               <div class="modal-body">
+                  <div class="row mt-3 mb-3">
+                     <div class="col-lg-2">
+                        <select class="form-select method" name="type" id="method">
+                           <option value="GET">Get</option>
+                           <option value="POST">Post</option>
+                           <option value="PUT">Put</option>
+                           <option value="DELETE">Delete</option>
+                        </select>
+                     </div>
+                     <div class="col-lg-10">
+                        <input type="text" class="requestUrl form-control" placeholder="Enter request URL">
+                     </div>
+                  </div>
+                  <div class="tab-box-1">
+                     <!-- Nav tabs -->
+                     <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                           <a class="nav-link active" data-bs-toggle="tab" href="#header">Headers</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" data-bs-toggle="tab" href="#body">Body</a>
+                        </li>
+                     </ul>
+                     <!-- Tab panes -->
+                     <div class="tab-content">
+                        <div class="tab-pane container active" id="header">
+                           <div class="template-part-box">
+                              <label for="comment">.</label> <a href="javascript:void(0);" class="headeraddbutton">Add</a>
+                           </div>
+                           <div class="table-responsive">
+                              <table class="table table-bordered"  id="headerbox">
+                                 <tr valign="top">
+                                    <th>Key</th>
+                                    <th>Value</th>
+                                 </tr>
+                              </table>
+                           </div>
+                        </div>
+                        <div class="tab-pane container fade" id="body">
+                           <div class="radio-box mt-3">
+                              <div class="form-check">
+                                 <input type="radio" class="form-check-input" id="urlEncoded" name="optradio" value="urlEncoded" checked>x-www-form-urlencoded
+                                 <label class="form-check-label" for="urlEncoded"></label>
+                              </div>
+                              <div class="form-check">
+                                 <input type="radio" class="form-check-input" id="radio2" name="optradio" value="Raw">Raw
+                                 <label class="form-check-label" for="radio2"></label>
+                              </div>
+                           </div>
+                           <div class="urlEncoded bobox" style="display: block;">
+                              <div class="template-part-box">
+                                 <label for="comment">.</label> <a href="javascript:void(0);" class="urlEncodedbutton">Add</a>
+                              </div>
+                              <div class="table-responsive">
+                                 <table class="table table-bordered"  id="urlEncodedbox">
+                                    <tr valign="top">
+                                       <th>Key</th>
+                                       <th>Value</th>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                           <div class="Raw bobox">
+                              <div class="mb-3 mt-3">
+                                 <textarea class="form-control ApitimeoutMessagerbox" rows="3" id="ApitimeoutMessage" id name="text" placeholder="Enter Timeout Message"></textarea>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <fieldset class="scheduler-border">
+                     <div class="mb-3 mt-3">
+                        <div class="form-check">
+                           <label class="form-check-label " id="asynchronoustype" for="asynchronous-type">Asynchronous</label>
+                           <input type="checkbox" class="form-check-input" id="asynchronous-type" name="asynchronous-type" value="asynchronous" >
+                        </div>
+                     </div>
+                     <div class="asynchronousBox" style="display:none;" >
+                        <div class="mb-3 mt-3">
+                           <label for="timeout" class="form-label">Timeout(seconds)</label>
+                           <input type="text" class="form-control" id="Apitimeout" placeholder="" name="timeout">
+                        </div>
+                        <div class="mb-3 mt-3">
+                           <label for="action" class="form-label">Action</label>
+                           <select class="form-select" name="action-type" id="Apiaction-type">
+                              <option value="Close">Close Session</option>
+                              <option value="Continue">Take new Branch</option>
+                           </select>
+                        </div>
+                        <div class="mb-3 mt-3">
+                           <textarea class="form-control ApitimeoutMessagerbox" rows="3" id="ApitimeoutMessage" id name="text" placeholder="Enter Timeout Message"></textarea>
+                        </div>
+                     </div>
+                  </fieldset>
+                  <h4 class="my-3">Variable Mapping</h4>
+                  <div class="tab-box-2">
+                     <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                           <a class="nav-link active" data-bs-toggle="tab" href="#outputmapping">Output Mapping</a>
+                        </li>
+                     </ul>
+                     <div class="tab-content">
+                        <div class="tab-pane container active" id="outputmapping">
+                           <div class="template-part-box">
+                              <label for="comment">.</label> <a href="javascript:void(0);" class="Mappingaddbutton">Add</a>
+                           </div>
+                           <div class="table-responsive">
+                              <table class="table table-bordered"  id="Mappingbox">
+                                 <tr valign="top">
+                                    <th>Key</th>
+                                    <th>Value</th>
+                                    <!-- <td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Input Name" /> </td>
+                                       <td><input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Input Value" /></td>
+                                       <td> <a href="javascript:void(0);" class="addCF">Add</a></td> -->
+                                 </tr>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- Modal footer -->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+               </div>
+            </div>
+         </div>
       </div>
 
-      <!-- Modal body -->
-       <div class="modal-body">
-        <div class="row mt-3 mb-3">
-          <div class="col-lg-2">
-            <select class="form-select method" name="type" id="method">
-              <option value="GET">Get</option>
-              <option value="POST">Post</option>
-              <option value="PUT">Put</option>
-              <option value="DELETE">Delete</option>
-           
-           </select>
-          </div>
-          <div class="col-lg-10">
-                             
-              <input type="text" class="requestUrl form-control" placeholder="Enter request URL">
-        
-          </div>
-        </div>
 
-<div class="tab-box-1">
-<!-- Nav tabs -->
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" data-bs-toggle="tab" href="#header">Headers</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-bs-toggle="tab" href="#body">Body</a>
-  </li>
+      <!-- Delay Modal -->
+      <div class="modal" id="DelayModal">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                  <h4 class="modal-title">Delay Properties</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+               </div>
+               <!-- Modal body -->
+               <div class="modal-body">
+                  <p>Delay node can be used to pause the execution for specified time in seconds.</p>
+                  <div class="mb-3 mt-3">
+                     <label for="Delay" class="form-label">Delay (seconds)</label>
+                     <input type="number" class="form-control" id="Delay" placeholder="" name="Delay">
+                  </div>
+               </div>
+               <!-- Modal footer -->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+
+
+<!-- Decision Modal -->
+<div class="modal" id="DecisionModal">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
  
-</ul>
+       <!-- Modal Header -->
+       <div class="modal-header">
+         <h4 class="modal-title">Add conditions</h4>
+         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+       </div>
+ 
+       <!-- Modal body -->
+       <div class="modal-body">
+        <button type="button" class="Decision-addBranch">Add Branch</button>
+        <fieldset class="scheduler-border">
+                        
+       
+         <div id="DecisionBlock">
 
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane container active" id="header">
-
-    <div class="template-part-box">
-      <label for="comment">.</label> <a href="javascript:void(0);" class="headeraddbutton">Add</a></div>
-      <div class="table-responsive">
-      <table class="table table-bordered"  id="headerbox">
-      <tr valign="top">
-      <th>Key</th>
-      <th>Value</th>
-   
-      </tr>
-      </table>
+         </div>
+         <div class="branch default_condition">
+            <div class="row">
+            <div class="col-lg-2">
+            <input type="text" name="DefaultbranchLabel" class="form-control" value="Default" disabled="true"></div>
+           <div class="col-lg-10"><p>If any of the above conditions are not met, execution will jump to this branch</p></div> 
+         </div>
       </div>
-
-
-
-
-  </div>
-  <div class="tab-pane container fade" id="body">
-
-    <div class="radio-box mt-3">
-    <div class="form-check">
-      <input type="radio" class="form-check-input" id="urlEncoded" name="optradio" value="urlEncoded" checked>x-www-form-urlencoded
-      <label class="form-check-label" for="urlEncoded"></label>
-    </div>
-
-    <div class="form-check">
-      <input type="radio" class="form-check-input" id="radio2" name="optradio" value="Raw">Raw
-      <label class="form-check-label" for="radio2"></label>
-    </div>
-  </div>
-
-
-  <div class="urlEncoded bobox" style="display: block;">
-
-    <div class="template-part-box">
-      <label for="comment">.</label> <a href="javascript:void(0);" class="urlEncodedbutton">Add</a></div>
-      <div class="table-responsive">
-      <table class="table table-bordered"  id="urlEncodedbox">
-      <tr valign="top">
-      <th>Key</th>
-      <th>Value</th>
-   
-      </tr>
-      </table>
-      </div>
-
-
-  </div>
-  <div class="Raw bobox">
-    <div class="mb-3 mt-3">
-      <textarea class="form-control ApitimeoutMessagerbox" rows="3" id="ApitimeoutMessage" id name="text" placeholder="Enter Timeout Message"></textarea>
-      </div>
-
-
-  </div>
-
-
-
-
-  </div>
-
-</div>
-
-</div>
-
-
-
-
-<fieldset class="scheduler-border">
-  <div class="mb-3 mt-3">
-  <div class="form-check">
-  <label class="form-check-label " id="asynchronoustype" for="asynchronous-type">Asynchronous</label>
-  <input type="checkbox" class="form-check-input" id="asynchronous-type" name="asynchronous-type" value="asynchronous" >
-  </div>
-  </div>
-
-  <div class="asynchronousBox" style="display:none;" >
-    <div class="mb-3 mt-3">
-      <label for="timeout" class="form-label">Timeout(seconds)</label>
-      <input type="text" class="form-control" id="Apitimeout" placeholder="" name="timeout">
-      </div>
-    <div class="mb-3 mt-3">
-      <label for="action" class="form-label">Action</label>
-      <select class="form-select" name="action-type" id="Apiaction-type">
-      <option value="Close">Close Session</option>
-      <option value="Continue">Take new Branch</option>
-      </select>
-   </div>
-   <div class="mb-3 mt-3">
-    <textarea class="form-control ApitimeoutMessagerbox" rows="3" id="ApitimeoutMessage" id name="text" placeholder="Enter Timeout Message"></textarea>
-    </div>
-
-
-  </div>
-  </fieldset>
-
-
-
-
-  <h4 class="my-3">Variable Mapping</h4>
-
-<div class="tab-box-2">   
-
-  <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" data-bs-toggle="tab" href="#outputmapping">Output Mapping</a>
-  </li>
-
-</ul>
-
-<div class="tab-content">
-  <div class="tab-pane container active" id="outputmapping">
-    
-    
-    <div class="template-part-box">
-      <label for="comment">.</label> <a href="javascript:void(0);" class="Mappingaddbutton">Add</a></div>
-      <div class="table-responsive">
-      <table class="table table-bordered"  id="Mappingbox">
-      <tr valign="top">
-      <th>Key</th>
-      <th>Value</th>
-      <!-- <td><input type="text" class="code" id="customFieldName" name="customFieldName[]" value="" placeholder="Input Name" /> </td>
-         <td><input type="text" class="code" id="customFieldValue" name="customFieldValue[]" value="" placeholder="Input Value" /></td>
-         <td> <a href="javascript:void(0);" class="addCF">Add</a></td> -->
-      </tr>
-      </table>
-      </div>
-
-
-
-  </div>
-
-
-</div>
-
-  </div>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-<!-- Delay Modal -->
-<div class="modal" id="DelayModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Delay Properties</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-       <p>Delay node can be used to pause the execution for specified time in seconds.</p>
-       <div class="mb-3 mt-3">
-        <label for="Delay" class="form-label">Delay (seconds)</label>
-        <input type="number" class="form-control" id="Delay" placeholder="" name="Delay">
-        </div>
-      </div>
-
+         
+   </fieldset>
+       </div>
+ 
        <!-- Modal footer -->
        <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
-      </div>
+         <button type="button" class="btn btn-danger" id="save_value">Save</button>
+       </div>
+ 
+     </div>
+   </div>
+ </div>
+ 
 
-    </div>
-  </div>
-</div>
+
+
+
 
 
 
