@@ -303,7 +303,7 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
         </div>
         </div>
         `;
-      editor.addNode("Decision", 3, 4, pos_x, pos_y, "Decision", {}, Decision);
+      editor.addNode("Decision", 1, 4, pos_x, pos_y, "Decision", {}, Decision);
       break;
     case "personalized":
       var personalized = `
