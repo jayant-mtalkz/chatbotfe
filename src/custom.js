@@ -621,13 +621,13 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $(".listAddSection").click(function () {
-    alert("abc");
+
     $("#listAddSectionBlock").append(
       '<div class="button-block"><div class="listAddSectionBlock" id="listAddSectionBlock"><div class="mb-3 mt-3"><label for="title" class="form-label">Title</label><input type="text" class="form-control" id="title" placeholder="Enter" name="title"><div class="template-part-box"><label for="comment">Rows</label><a href="javascript:void(0);" class="listAddrow">Add Row</a></div><div class="helper-text"><p>*Row Title is mandatory and maximum length is 24 characters)</p><p>*ID is mandatory and maximum length is 200 characters)</p><p>*Description is optional and maximum length is 72 characters),</p></div></div><div class="addrowBlock"></div></div> <a href="javascript:void(0);" class="removebtn">Remove </a></div>'
     );
 
     $(".listAddrow").click(function () {
-      alert("test Message");
+     
       $(".addrowBlock").append(
         '<div class="button-block"><div class="mb-3 mt-3"><label for="label" class="form-label">Label</label><input type="text" class="form-control" id="label" placeholder="Please Enter Label" name="customFieldlabel"/></div><div class="mb-3 mt-3"><label for="label" class="form-label">Type</label><input type="text" class="form-control" id="typetext" placeholder="text" name="typetext"/></div><div class="mb-3 mt-3"><label for="id" class="form-label">ID</label><input type="text" class="form-control" id="id" placeholder="Enter Id" name="customFieldBtn"/></div><a href="javascript:void(0);" class="removebtn">Remove </a></div>'
       );
@@ -646,13 +646,13 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $(".ProductlistAddSection").click(function () {
-    alert("abc");
+   
     $("#ProductlistAddSectionBlock").append(
       '<div class="button-block"><div class="ProductlistAddSectionBlock" id="ProductlistAddSectionBlock"><div class="mb-3 mt-3"><label for="title" class="form-label">Title</label><input type="text" class="form-control" id="title" placeholder="Enter" name="title"><div class="template-part-box"><label for="comment">Rows</label><a href="javascript:void(0);" class="ProductlistAddrow">Add Row</a></div><div class="helper-text"><p>*Product Retailer Id is mandatory </p></div></div><div class="addrowBlock"></div></div> <a href="javascript:void(0);" class="removebtn">Remove </a></div>'
     );
 
     $(".ProductlistAddrow").click(function () {
-      alert("test Message");
+   
       $(".ProductaddrowBlock").append(
         '<div class="button-block"><div class="mb-3 mt-3"><label for="label" class="form-label">Label</label><input type="text" class="form-control" id="label" placeholder="Please Enter Label" name="customFieldlabel"/></div><div class="mb-3 mt-3"><label for="label" class="form-label">Type</label><input type="text" class="form-control" id="typetext" placeholder="text" name="typetext"/></div><div class="mb-3 mt-3"><label for="id" class="form-label">ID</label><input type="text" class="form-control" id="id" placeholder="Enter Id" name="customFieldBtn"/> <div class="ProductaddrowBlock"></div></div><a href="javascript:void(0);" class="removebtn">Remove </a></div>'
       );
@@ -859,6 +859,32 @@ $(document).ready(function () {
   });
 
 });
+
+
+
+$(function () {
+  $("#vartype").change(function () {
+    if ($("#vartype").val() == "Text") {
+      $(".dfield").hide();
+      $("#vvalue").show();
+ }else if ($("#vartype").val() == "Number") {
+  $(".dfield").hide();
+  $("#numvalue").show();
+}else if ($("#vartype").val() == "Boolean") {
+  $(".dfield").hide();
+  $("#boolean").show();
+}else if ($("#vartype").val() == "Media") {
+  $(".dfield").hide();
+  $("#media-box").show();
+}else if ($("#vartype").val() == "Location") {
+  $(".dfield").hide();
+  $("#Locationfield-box").show();
+}
+  });
+});
+
+
+
 
 
 // $(function(){

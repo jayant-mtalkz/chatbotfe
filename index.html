@@ -186,13 +186,24 @@ background: #00ffff00;
   border: 2px solid #6565658f;
  
 }
+
+.drawflow-delete {line-height: 25px;}
+.sidebar-menu{
+   position: relative;
+}
+div#accordionExample {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
       </style>
       <header>
          <h2>Mtalkz</h2>
          <!-- <div class="github-link"><a href="https://github.com/jerosoler/Drawflow" target="_blank"><i class="fab fa-github fa-3x"></i></a></div> -->
       </header>
       <div class="wrapper">
-         <div class="col">
+         <div class="col sidebar-menu">
             <!-- <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="start">
                <i class="fab fa-facebook"></i><span> Start</span>
                </div> -->
@@ -247,6 +258,26 @@ background: #00ffff00;
                <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="custom">
                <i class="fas fa-mouse"></i><span> Custom</span>
                </div> -->
+
+
+               <!-- Accordion Part  -->
+               <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Variables
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        
+                        <button type="button" class="btn addCF" data-bs-toggle="modal" data-bs-target="#varModal">Add</button>
+                      </div>
+                    </div>
+                  </div>
+              
+                </div>
+
          </div>
          <div class="col-right">
             <div id="drawflow" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -847,7 +878,108 @@ background: #00ffff00;
  
 
 
+<!-- var Modal -->
 
+<div class="modal" id="varModal">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+ 
+       <!-- Modal Header -->
+       <div class="modal-header">
+         <h4 class="modal-title">Create Variable</h4>
+         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+       </div>
+ 
+       <!-- Modal body -->
+       <div class="modal-body">
+         <div class="row"  >
+            <div class="mb-3 mt-3">
+            <label for="varname" class="form-label">Name</label>
+            <input type="text" class="form-control" id="varname" placeholder="Name of the variable" name="varname">
+            </div>
+
+            <div class="mb-3 mt-3">
+            <select class="form-select " name="vartype" id="vartype">
+               <option value="Text">Text</option>
+               <option value="Number">Number</option>
+               <option value="Boolean">Boolean</option>
+               <option value="Media">Media</option>
+               <option value="Location">Location</option>
+               <option value="Order">Order</option>
+            </select>
+            </div>
+
+            <div class="mb-3 mt-3 dfield" id="vvalue" style="display: none;">
+               <label for="varvalue" class="form-label">Value</label>
+               <input type="text" class="form-control" id="varvalue" placeholder="Default value of the variable" name="varvalue">
+               </div>
+
+               <div class="mb-3 mt-3 dfield" id="numvalue" style="display: none;">
+                  <label for="numbervalue" class="form-label">Value</label>
+                  <input type="number" class="form-control" id="numbervalue" placeholder="0" name="numbervalue">
+                  
+               </div>
+               <div class="mb-3 mt-3 dfield" id="boolean" style="display: none;">
+                  <input type="checkbox" class="form-check-input" id="booleanvalue" name="booleanvalue" value="" >
+                  
+               </div>
+               <div class="media-box dfield" id="media-box" style="display: none;">
+               <div class="mb-3 mt-3 " id="mUrl" >
+                  <label for="mediaUrl" class="form-label">Url</label>
+                  <input type="text" class="form-control" id="mediaUrl" placeholder="" name="mediaUrl">
+               </div>
+               <div class="mb-3 mt-3 " id="mcaption" >
+                  <label for="mediacaption" class="form-label">Caption</label>
+                  <input type="text" class="form-control" id="mediacaption" placeholder="" name="caption">
+              
+                  
+               </div>
+            </div>
+
+
+            <div class="Location-box dfield" id="Locationfield-box" style="display: none;">
+               <div class="mb-3 mt-3 " id="mUrl" >
+                  <label for="LoLongitude" class="form-label">Longitude</label>
+                  <input type="text" class="form-control" id="LoLongitude" placeholder="" name="LoLongitude">
+               </div>
+               <div class="mb-3 mt-3 " >
+                  <label for="LoLatitude" class="form-label">Latitude</label>
+                  <input type="text" class="form-control" id="LoLatitude" placeholder="" name="LoLatitude">
+              
+                  
+               </div>
+
+               <div class="mb-3 mt-3 "  >
+                  <label for="LoLabel" class="form-label">Label</label>
+                  <input type="text" class="form-control" id="LoLabel" placeholder="" name="LoLabel">
+              
+                  
+               </div>
+               <div class="mb-3 mt-3 " id="Laddress" >
+                  <label for="Loaddress" class="form-label">Address</label>
+                  <input type="text" class="form-control" id="Loaddress" placeholder="" name="Loaddress">
+              
+                  
+               </div>
+            </div>
+
+              
+
+
+       </div>
+       </div>
+ 
+       <!-- Modal footer -->
+       <div class="modal-footer">
+         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+         <button type="button" class="btn btn-success" data-bs-dismiss="modal">Submit</button>
+          
+       </div>
+ 
+     </div>
+   </div>
+ </div>
+ 
 
 
 
