@@ -303,7 +303,7 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
         </div>
         </div>
         `;
-      editor.addNode("Decision", 1, 4, pos_x, pos_y, "Decision", {}, Decision);
+      editor.addNode("Decision", 1, 1, pos_x, pos_y, "Decision", {}, Decision);
       break;
     case "personalized":
       var personalized = `
@@ -984,10 +984,10 @@ function save() {
 
   // console.log(details)
   // console.log(email.value)
-  // table();
+  table();
   varnamename.value = "";
   vartype.value = "";
-  refreshPage()
+
 };
 
 function deleteData(index) {
@@ -1000,3 +1000,46 @@ function deleteData(index) {
   // console.log(details)
 };
 
+
+function setConditionsData() {
+  localStorage.setItem("conditions", JSON.stringify(conditions));
+};
+conditions = [];
+const saveconditions = () => {
+
+  alert("abc");
+
+  let BranchLabel0 = document.getElementById("BranchLabel0");
+  let raw_condition0 = document.getElementById("raw_condition0");
+  let BranchLabel1 = document.getElementById("BranchLabel1");
+  let raw_condition1 = document.getElementById("raw_condition1");
+  // let BranchLabel2 = document.getElementById("BranchLabel2");
+  // let raw_condition2 = document.getElementById("raw_condition2");
+  // let BranchLabel3 = document.getElementById("BranchLabel3");
+  // let raw_condition3 = document.getElementById("raw_condition3");
+console.log(BranchLabel0.value,raw_condition0.value,BranchLabel1.value,raw_condition1.value);
+
+  let data = {
+    BranchLabel: BranchLabel0.value,
+    raw_condition: raw_condition0.value,
+    BranchLabel1: BranchLabel1.value,
+    raw_condition1: raw_condition1.value,
+    // BranchLabel2: BranchLabel2.value,
+    // raw_condition2: raw_condition2.value,
+    // BranchLabel3: BranchLabel3.value,
+   
+    // raw_condition3: raw_condition3.value,
+};
+
+
+conditions.push(data);
+setConditionsData();
+
+editor.addNode("Decision", 1, 2, pos_x, pos_y, "Decision", {}, Decision,id);
+// console.log(details)
+// console.log(email.value)
+// table();
+
+
+
+}
