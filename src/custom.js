@@ -879,6 +879,8 @@ $(function () {
 }else if ($("#vartype").val() == "Location") {
   $(".dfield").hide();
   $("#Locationfield-box").show();
+}else {
+  $(".dfield").hide();
 }
   });
 });
@@ -909,3 +911,92 @@ editor.on("connectionCreated", function(info) {
 
 // BranchLabel
 // raw_condition
+
+
+function refreshPage(){
+  window.location.reload();
+} 
+
+
+function table() {
+  let table = `<table class="table">
+
+<tbody>`;
+  for (let i = 0; i < details.length; i++){
+      table = table + `<tr>
+ 
+    <td>${details[i].name} :</td>
+    <td>${details[i].vartype}</td>
+
+    <td><button type="button" class="btn btn-danger" onclick="deleteData(${i})"><i class="fa fa-trash" ></i></button></td>
+  </tr> `;
+  };
+  table = table+`</tbody>
+  </table>`;
+  document.getElementById("table").innerHTML = table;
+};
+details = [];
+getData();
+table();
+function getData(){
+    let Data = localStorage.getItem("details");
+    if (Data) {
+        details = JSON.parse(Data);
+    } else {
+        setData();
+    };
+};
+function setData() {
+  localStorage.setItem("details", JSON.stringify(details));
+};
+function save() {
+  let varnamename = document.getElementById("varname");
+  let vartype = document.getElementById("vartype");
+  let vartypevalue = document.getElementById("varvalue");
+  let numbervalue = document.getElementById("numbervalue");
+  let mediaUrl = document.getElementById("mediaUrl");
+  let mediacaption = document.getElementById("mediacaption");
+  let LoLongitude = document.getElementById("LoLongitude");
+  let LoLatitude = document.getElementById("LoLatitude");
+  let LoLabel = document.getElementById("LoLabel");
+  let Loaddress = document.getElementById("Loaddress");
+  
+
+  if (varnamename.value == 0) {
+      alert("name is Empty");
+      return
+  }
+  let data = {
+      name: varnamename.value,
+      vartype: vartype.value,
+      vartypevalue: vartypevalue.value,
+      numbervalue: numbervalue.value,
+      mediaUrl: mediaUrl.value,
+      mediacaption: mediacaption.value,
+      LoLongitude: LoLongitude.value,
+      LoLatitude: LoLatitude.value,
+      LoLabel: LoLabel.value,
+      Loaddress: Loaddress.value,
+      
+  };
+  details.push(data);
+  setData();
+
+  // console.log(details)
+  // console.log(email.value)
+  // table();
+  varnamename.value = "";
+  vartype.value = "";
+  refreshPage()
+};
+
+function deleteData(index) {
+  details.splice(index, 1);
+  setData();
+  table();
+  
+
+  // console.log('delete work')
+  // console.log(details)
+};
+

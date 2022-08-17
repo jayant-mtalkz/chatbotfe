@@ -268,10 +268,14 @@ div#accordionExample {
                         Variables
                       </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
                         
                         <button type="button" class="btn addCF" data-bs-toggle="modal" data-bs-target="#varModal">Add</button>
+
+                        <div id="table" class="container-fluid">
+
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -972,7 +976,7 @@ div#accordionExample {
        <!-- Modal footer -->
        <div class="modal-footer">
          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-         <button type="button" class="btn btn-success" data-bs-dismiss="modal">Submit</button>
+         <button type="button" class="btn btn-success" onclick="save()">Submit</button>
           
        </div>
  
