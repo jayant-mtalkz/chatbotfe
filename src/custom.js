@@ -22,14 +22,14 @@ editor.import(dataToImport);
 
 var start = `
 <div>
-  <div class="title-box"><i class="fab fa-facebook"></i> Start</div>
+  <div class="title-box"> Start</div>
 </div>
 `;
 editor.addNode("start", 0, 1, 50, 50, "start", {}, start);
 
 var end = `
       <div>
-        <div class="title-box" ><i class="fab fa-slack"></i> Stop </div>
+        <div class="title-box" > Stop </div>
      
       </div>
       `;
@@ -212,7 +212,7 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
       <div>
       <div class="title-box" ><i class="fab fa-slack"></i>Delay</div>
       <div class="setting-box">
-        <i class="fa fa-cogs setting-icon" data-bs-toggle="modal" data-bs-target="#DelayModal">
+        <i class="fab fa-cogs setting-icon" data-bs-toggle="modal" data-bs-target="#DelayModal">
       </div>
     </div>
       `;
@@ -295,7 +295,7 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
     case "Decision":
       var Decision = `
         <div>
-          <div class="box">
+          <div class="title-box">
           Decision!
           </div>
           <div class="setting-box">
@@ -1008,11 +1008,12 @@ conditions = [];
 const saveconditions = () => {
 
   alert("abc");
+  let branches=document.querySelectorAll("#BranchLabel*")
 
-  let BranchLabel0 = document.getElementById("BranchLabel0");
-  let raw_condition0 = document.getElementById("raw_condition0");
-  let BranchLabel1 = document.getElementById("BranchLabel1");
-  let raw_condition1 = document.getElementById("raw_condition1");
+  // let BranchLabel0 = document.getElementById("BranchLabel0");
+  // let raw_condition0 = document.getElementById("raw_condition0");
+  // let BranchLabel1 = document.getElementById("BranchLabel1");
+  // let raw_condition1 = document.getElementById("raw_condition1");
   // let BranchLabel2 = document.getElementById("BranchLabel2");
   // let raw_condition2 = document.getElementById("raw_condition2");
   // let BranchLabel3 = document.getElementById("BranchLabel3");

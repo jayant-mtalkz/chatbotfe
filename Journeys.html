@@ -8,6 +8,7 @@
  
       <link rel="stylesheet" type="text/css" href="src/drawflow.css" />
       <link rel="stylesheet" type="text/css" href="src/css/beautiful.css" />
+      <link rel="stylesheet" type="text/css" href="src/css/style.css" />
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <!-- <script src="https://cdn.jsdelivr.net/gh/jerosoler/Drawflow/dist/drawflow.min.js"></script> -->
       <script src="src/drawflow.js"></script>
@@ -19,6 +20,7 @@
       <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
+
 <script>
 
 
@@ -28,8 +30,41 @@ fetch('https://cb.mtalkz.cloud/export/',{
     "x-api-key": "eyJhbGciOiJIUzI1NiJ9"
   }, 
 })
-    .then(response => response.text())
-    .then(data => console.log(data));
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data.existingChatbots)
+        let data1="";
+
+        data.existingChatbots.map((value)=>{
+            data1 +=`<div class="col-lg-4 my-4"><a href="singlepage.html?id=${value._id}"><div class="card" >
+     
+        <div class="card-body">
+          <h4 class="card-title">${value.name}</h4>
+          <p class="card-text">Phone : ${value.phone}</p>
+          <hr>
+
+<div class="row">
+    <div class="col-lg-6"><h6>Channel Type</h6>
+
+<p class="card-text"><i class="fab fa-whatsapp" aria-hidden="true"></i> ${value.channel}</p>
+    </div>
+     <div class="col-lg-6"><h6>Created On</h6>
+
+<p class="card-text"><i class="fa fa-calendar" aria-hidden="true"></i> ---------</p>
+    </div>
+</div>
+        </div>
+      </div>
+      </a></div>`
+        })
+
+        document.getElementById("cardbox").innerHTML=data1;
+    }).catch((err)=>{
+
+console.log(err);
+
+
+    });
 
 </script>
 
@@ -39,29 +74,19 @@ fetch('https://cb.mtalkz.cloud/export/',{
 
 <section class="journeys">
 
-    <div class="container mt-3">
-
-
-<div class="row">
-
-<div class="col-lg-4">
-
-    <div class="card" style="width:400px">
-        <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image" style="width:100%">
-        <div class="card-body">
-          <h4 class="card-title">John Doe</h4>
-          <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-          <a href="#" class="btn btn-primary">See Profile</a>
+    <div class="container my-4">
+      <div class="search-block">
+      <div class="row">
+        <div class="col-lg-10">
+        <input id="myInput" type="text" placeholder="Search..">
+        </div>
+        <div class="col-lg-2">
+         
+          <button type="button" class="btn btn-primary">New Journey</button>
         </div>
       </div>
-
-
-
-</div>
-
-
-
-</div>
+    </div>
+    <div id="cardbox" class="row"> </div>
 
 
 
@@ -83,6 +108,17 @@ fetch('https://cb.mtalkz.cloud/export/',{
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="src/custom.js"></script>
+
+      <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#cardbox .card").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+        </script>
 
    </body>
 </html>

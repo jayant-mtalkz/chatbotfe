@@ -1,0 +1,221 @@
+body{
+    
+    overflow:auto;
+
+}
+.rounded {
+    border-radius: 0.25rem!important;
+    background: #f3f3f3a6;
+}
+.search-block #myInput {
+    height: 38px;
+    width: 100%;
+    padding: 0px 24px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+a {
+    color: #000!important;
+    text-decoration: none!important;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #000!important;
+    color: #fff!important;
+    font-weight: 700;
+    border-radius: 20px;
+}
+.nav-pills {
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    border-radius: 20px;
+    
+}
+.checkbox-field-card {
+    display: flex;
+}
+    .modal {
+    background-color: rgb(0 0 0 / 22%);
+    }
+    .modal-header{
+    padding: 10px 0px;
+    }
+    .modal-body {
+    padding: 1rem 0px;
+    }
+    label {
+    padding-bottom: 5px;
+    }
+    fieldset {
+    min-width: 0;
+    border: 0;
+    background: #f2f2f2;
+    padding: 10px 20px;
+    margin: 5px 0px;
+    }
+    .keywordcard {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: 0.25rem;
+        padding: 10px 15px;
+        margin-top: 10px;
+    }
+    .setting-icon {
+    font-size: 20px;
+    position: absolute;
+    bottom: -30px;
+    left: 0px;
+    display: none;
+    }
+    .selected .drawflow_content_node .setting-icon{
+    display: block;
+    }
+    .button-box {
+    text-align: right;
+    }
+    .dfield {
+    display: none;
+    }
+    .swal2-popup {
+    width: 60em;
+    }
+    .template-part-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    }
+    .drawflow-node .title-box {
+    height: auto;
+    line-height: 50px;
+    background: none;
+    border-bottom: none;
+    border-radius: 4px 4px 0px 0px;
+    padding-left: 0px;
+    text-align: center;
+    }
+    .drawflow .start,.drawflow .end {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background: none;
+    width: 100px!important;
+    height: 100px!important;
+    min-height: 40px!important;
+ 
+    border: 2px solid #6565658f;
+    color: #000!important;
+    z-index: 2;
+    padding: 15px;
+    border-radius: 64px!important;
+    }
+  
+    .drag-drawflow span {
+    padding-left: 10px;
+    }
+    input {
+    border: none;
+    width: 100%;
+    padding: 5px 5px;
+    }
+    .button-block{
+    background: gainsboro;
+    padding: 5px 15px;
+    margin-bottom: 10px;
+    position: relative;
+    }
+    .button-block .removebtn,.removecard{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: #e3195a;
+    text-decoration: none;
+    color: #fff;
+    padding: 4px 20px;
+    border-radius: 5px;
+    }
+    .decision-field {
+position: relative;
+}
+    .Decision-addBranch {
+background: #4ea9ff;
+border: none;
+padding: 5px 15px;
+margin-bottom: 10px;
+color:#fff;
+}
+#DecisionBlock .removebtn {
+background: #e3195a;
+text-decoration: none;
+color: #fff;
+padding: 4px 20px;
+border-radius: 5px;
+position: absolute;
+right: 16px;
+top: 5px;
+}
+
+    .card-box {
+    background: gainsboro;
+    padding: 15px 20px;
+    }
+    .c-card {
+    border-top: 10px solid #fff;
+    margin-top: 20px;
+    position:relative;
+    }
+    .removecard {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    }
+    a.addbtn,.addCF,.Saddbtn,.addcard,.addCF2,.headeraddbutton,.Mappingaddbutton,.urlEncodedbutton,.interactiveaddbtn {
+    background: #4ea9ff;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    }   
+    .drawflow .drawflow-node.selected {
+    background: #e3195a;
+    border: none;
+    }
+    .radio-box {
+    display: flex;
+    }
+    .bobox{
+    display: none;
+    }
+    .tab-pane {
+    padding: 0px;
+    }
+    .branch.default_condition p {
+line-height: 2.3;
+margin: 0px;
+}
+.selected .box {
+color: #fff;
+
+}
+.drawflow .drawflow-node {
+
+background: #00ffff00!important;
+border: 2px solid #6565658f!important;
+
+}
+
+.drawflow-delete {line-height: 25px;}
+.sidebar-menu{
+position: relative;
+}
+div#accordionExample {
+width: 100%;
+position: absolute;
+bottom: 0;
+}
