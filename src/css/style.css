@@ -7,6 +7,9 @@ body{
     border-radius: 0.25rem!important;
     background: #f3f3f3a6;
 }
+.swal2-popup{
+    width: 55em!important;
+}
 .search-block #myInput {
     height: 38px;
     width: 100%;
