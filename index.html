@@ -47,6 +47,9 @@
             <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="Decision">
                <i class="fas fa-code-branch"></i><span>Decision</span>
                </div>
+               <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="CallActivity">
+                  <i class="fas fa-tasks" aria-hidden="true"></i><span>CallActivity</span>
+                  </div>
             <!-- <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="github">
                <i class="fab fa-github"></i><span> Github Star</span>
                </div>
@@ -485,7 +488,9 @@
                </div>
                </fieldset>
                <div class="button-box">
-               <button type="submit" class="btn btn-primary mt-3">Save</button>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Save</button>
+                   </div>
                </div>
                </form>
             </div>
@@ -679,11 +684,11 @@
         <button type="button" class="Decision-addBranch">Add Branch</button>
         <fieldset class="scheduler-border">
                         
-       <form id="DecisionFrom">
+       
          <div id="DecisionBlock">
 
          </div>
-      </form>
+         <button class="submit">Submit</button>
          <div class="branch default_condition">
             <div class="row">
             <div class="col-lg-2">
@@ -810,6 +815,62 @@
  
 
 
+
+ <!-- CallActivity Modal -->
+<div class="modal" id="CallActivity">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+ 
+       <!-- Modal Header -->
+       <div class="modal-header">
+         <h4 class="modal-title">Call Activity Properties</h4>
+         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+       </div>
+ 
+       <!-- Modal body -->
+       <div class="modal-body">
+         <div class="mb-3 mt-3">
+            <label for="selectFlow" class="form-label">Select Target Flow</label>
+            <input type="text" class="form-control" id="selectFlow" placeholder="Select Flow" name="selectFlow">
+         </div>
+         <div class="container mt-3">
+            <h4>Variable Mapping</h4>
+       
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#inputMapping">Input Mapping</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#outputMapping">Output Mapping</a>
+              </li>
+             
+            </ul>
+          
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div id="inputMapping" class="container tab-pane active"><br>
+               <p>------</p>
+              </div>
+              <div id="outputMapping" class="container tab-pane fade"><br>
+            
+                <p>------</p>
+              </div>
+           
+            </div>
+          </div>
+          
+       </div>
+ 
+       <!-- Modal footer -->
+       <div class="modal-footer">
+         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Save</button>
+       </div>
+ 
+     </div>
+   </div>
+ </div>
+ 
 
 
 

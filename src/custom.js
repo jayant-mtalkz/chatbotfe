@@ -305,6 +305,19 @@ function addNodeToDrawFlow(name, pos_x, pos_y) {
         `;
       editor.addNode("Decision", 1, 1, pos_x, pos_y, "Decision", {}, Decision);
       break;
+      case "CallActivity":
+      var CallActivity = `
+        <div>
+          <div class="title-box">
+          CallActivity
+          </div>
+          <div class="setting-box">
+          <i class="fa fa-cogs setting-icon" data-bs-toggle="modal" data-bs-target="#CallActivity">
+        </div>
+        </div>
+        `;
+      editor.addNode("CallActivity", 1, 1, pos_x, pos_y, "CallActivity", {}, CallActivity);
+      break;
     case "personalized":
       var personalized = `
         <div>
@@ -849,7 +862,7 @@ $(document).ready(function () {
   $(".Decision-addBranch").click(function () {
   
     $("#DecisionBlock").append(
-      '<div class="row dfield decision-field " id="first'+ count +'" style="display: block;"><div class="col-lg-3 mt-4"><input type="text" class="BranchLabel form-control"  id="BranchLabel'+ count +'"  placeholder="Branch Label"></div><div class="mb-3 "><label for="comment"></label><textarea class="form-control" rows="5" id="raw_condition'+ count +'"  name="raw_condition"></textarea><a href="javascript:void(0);" class="removebtn">Remove</a></div></div>');
+      '<div class="row dfield decision-field " id="first'+ count +'" style="display: block;"><div class="col-lg-3 mt-4"><input type="text" class="Branch form-control"  id="BranchLabel'+ count +'"  placeholder="Branch Label" name="branchLabel[]"></div><div class="mb-3 "><label for="comment"></label><textarea class="form-control Branch" rows="5" id="raw_condition'+ count +'"  name="raw_condition[]"></textarea><a href="javascript:void(0);" class="removebtn">Remove</a></div></div>');
       count++;
     
     });
@@ -1004,7 +1017,7 @@ function deleteData(index) {
 function setConditionsData() {
   localStorage.setItem("conditions", JSON.stringify(conditions));
 };
-conditions = [];
+// conditions = [];
 const saveconditions = () => {
 
   alert("abc");
@@ -1047,4 +1060,42 @@ editor.addNode("Decision", 1, 2, pos_x, pos_y, "Decision", {}, Decision,id);
 
 
 
+$(document).ready(function() {
+//   var wrapper = $("#DecisionBlock");
+// $('.submit').click(function() {
+//   var list = wrapper.find('input').map(function() {
+//     return $(this).val();
+//   }).get();
+//   // send to server here
+//   console.log(list);
+// });
 
+});
+
+
+
+$('.submit').on('click', function (){
+  $('.Branch').each(function() {
+     var grade =  $(this).val();
+     let data = {
+      // BranchLabel: BranchLabel0.value,
+      // raw_condition: raw_condition0.value,
+      // BranchLabel1: BranchLabel1.value,
+      // raw_condition1: raw_condition1.value,
+      // BranchLabel2: BranchLabel2.value,
+      // raw_condition2: raw_condition2.value,
+      // BranchLabel3: BranchLabel3.value,
+     
+      // raw_condition3: raw_condition3.value,
+      grade
+  };
+     conditions.push(data);
+     console.log(conditions)
+     setConditionsData();
+  });
+});
+
+conditions = [];
+function setConditionsData() {
+  localStorage.setItem("conditions", JSON.stringify(conditions));
+};
